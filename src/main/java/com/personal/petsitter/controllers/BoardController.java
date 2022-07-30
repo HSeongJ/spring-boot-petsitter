@@ -1,10 +1,14 @@
 package com.personal.petsitter.controllers;
 
 import com.personal.petsitter.dto.Board;
+import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.dto.PageRequestDTO;
+import com.personal.petsitter.services.board.BoardCommentService;
 import com.personal.petsitter.services.board.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/board")
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
 
     private final BoardService boardService;
+    private final BoardCommentService boardCommentService;
 
     @GetMapping("/list")
     public Board.ListResponse getList(PageRequestDTO dto) {
@@ -21,6 +26,11 @@ public class BoardController {
     @GetMapping("/{board_idx}")
     public Board.DetailInfo getDetailInfo(@PathVariable("board_idx")Long idx) {
         return boardService.getDetailInfo(idx);
+    }
+
+    @GetMapping("/comment/{board_idx}")
+    public Comment.BoardResponse getCommentList(@PathVariable("board_idx")Long idx) {
+        return boardCommentService.getCommentList(idx);
     }
 
     @PostMapping("/insert")

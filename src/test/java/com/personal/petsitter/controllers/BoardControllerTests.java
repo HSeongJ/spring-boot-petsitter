@@ -50,4 +50,12 @@ public class BoardControllerTests {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void testGetCommentList() throws Exception {
+        mockMvc.perform(
+                get("/board/comment/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }
