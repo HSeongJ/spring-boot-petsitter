@@ -1,5 +1,6 @@
 package com.personal.petsitter.repositories.board;
 
+import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.entities.board.BoardCommentEntity;
 import com.personal.petsitter.entities.board.BoardEntity;
 import lombok.extern.log4j.Log4j2;
@@ -43,4 +44,5 @@ public class BoardCommentRepositoryTests {
             log.info(list[0] + ", " + list[1] + ", " + list[2] + ", " + list[3] + ", " + list[4]);
         }
     }
+
 }

@@ -28,13 +28,18 @@ public class BoardController {
         return boardService.getDetailInfo(idx);
     }
 
+    @PostMapping("/insert")
+    public String insertBoard(Board.InsertInfo dto) {
+        return boardService.insertBoard(dto);
+    }
+
     @GetMapping("/comment/{board_idx}")
     public Comment.BoardResponse getCommentList(@PathVariable("board_idx")Long idx) {
         return boardCommentService.getCommentList(idx);
     }
 
-    @PostMapping("/insert")
-    public String insertBoard(Board.InsertInfo dto) {
-        return boardService.insertBoard(dto);
+    @PostMapping("/comment/insert")
+    public String insertComment(Comment.BoardWrite dto) {
+        return boardCommentService.insertComment(dto);
     }
 }

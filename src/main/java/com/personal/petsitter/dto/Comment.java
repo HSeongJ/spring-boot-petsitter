@@ -21,6 +21,8 @@ public class Comment {
         private LocalDateTime modDate;
     }
 
+    @Builder
+    @Getter
     public static class BoardWrite {
         private Long board_idx;
         private Long cus_idx;

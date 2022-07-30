@@ -35,4 +35,13 @@ public class BoardCommentServiceImpl implements BoardCommentService {
 
         return new Comment.BoardResponse(new ArrayList<>(dtoList));
     }
+
+    public String insertComment(Comment.BoardWrite dto) {
+        try {
+            boardCommentRepository.save(dtoToEntity(dto));
+        } catch (Exception e) {
+            return "입력 실패";
+        }
+        return "입력 성공";
+    }
 }
