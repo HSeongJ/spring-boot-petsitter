@@ -20,7 +20,7 @@ public class BoardController {
 
     @GetMapping("/{board_idx}")
     public Board.DetailInfo getDetailInfo(@PathVariable("board_idx")Long idx) {
-        return boardService.getDetailInfo(1L);
+        return boardService.getDetailInfo(idx);
     }
 
     @PostMapping("/insert")
