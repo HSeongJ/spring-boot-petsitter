@@ -5,6 +5,7 @@ import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.services.board.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +19,10 @@ public class BoardController {
     @GetMapping("/list")
     public Board.ListResponse getList(PageRequestDTO dto) {
         return boardService.getBoardList(dto);
+    }
+
+    @GetMapping("/{board_idx}")
+    public Board.DetailInfo getDetailInfo(@PathVariable("board_idx")Long idx) {
+        return boardService.getDetailInfo(1L);
     }
 }

@@ -20,4 +20,9 @@ public class BoardServiceTests {
 
         log.info(boardService.getBoardList(dto));
     }
+
+    @Test
+    public void testGetDetailInfo() {
+        log.info(boardService.getDetailInfo(1L));
+    }
 }

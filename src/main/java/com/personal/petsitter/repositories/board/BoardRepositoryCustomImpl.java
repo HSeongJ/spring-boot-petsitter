@@ -3,16 +3,19 @@ package com.personal.petsitter.repositories.board;
 import com.personal.petsitter.dto.Board;
 import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.entities.board.BoardEntity;
+import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPQLQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.hibernate.sql.Select;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Array;
 import java.util.List;
 
 import static com.personal.petsitter.entities.board.QBoardCommentEntity.boardCommentEntity;
@@ -55,6 +58,25 @@ public class BoardRepositoryCustomImpl extends QuerydslRepositorySupport impleme
                         query).fetch();
 
         return new PageImpl<>(results, dto.getPageable(Sort.by("idx").descending()), totalCount);
+    }
+
+    @Override
+    public Tuple getDetail(Long idx) {
+        Tuple result = jpaQueryFactory
+                .select(boardEntity.idx,
+                        boardEntity.title,
+                        boardEntity.writer.nickname,
+                        boardEntity.content,
+                        boardEntity.regDate,
+                        boardEntity.modDate,
+                        boardEntity.category,
+                        boardEntity.picture1, boardEntity.picture2, boardEntity.picture3,
+                        boardEntity.picture4, boardEntity.picture5
+                )
+                .from(boardEntity)
+                .where(boardEntity.idx.eq(idx))
+                .fetchOne();
+        return result;
     }
 
     private BooleanExpression eqCategory(String category) {

@@ -51,4 +51,9 @@ public class BoardRepositoryTests {
             log.info(list);
         }
     }
+
+    @Test
+    public void testGetDetailInfo() {
+        log.info(boardRepository.getDetail(1L));
+    }
 }

@@ -26,4 +26,12 @@ public class BoardControllerTests {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void testGetDetailInfo() throws Exception {
+        mockMvc.perform(
+                get("/board/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }
