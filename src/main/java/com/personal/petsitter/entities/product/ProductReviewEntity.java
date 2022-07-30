@@ -1,6 +1,6 @@
 package com.personal.petsitter.entities.product;
 
-import com.personal.petsitter.entities.base.BasePicturesEntity;
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Getter
 @ToString(exclude = "product")
 @DynamicInsert
-public class ProductReviewEntity extends BasePicturesEntity {
+public class ProductReviewEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,4 +35,19 @@ public class ProductReviewEntity extends BasePicturesEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private ProductEntity product;
+
+    @Column(length = 500)
+    private String picture1;
+
+    @Column(length = 500)
+    private String picture2;
+
+    @Column(length = 500)
+    private String picture3;
+
+    @Column(length = 500)
+    private String picture4;
+
+    @Column(length = 500)
+    private String picture5;
 }

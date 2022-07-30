@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -31,6 +32,21 @@ public class BoardControllerTests {
     public void testGetDetailInfo() throws Exception {
         mockMvc.perform(
                 get("/board/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testInsertBoard() throws Exception {
+        mockMvc.perform(
+                post("/board/insert")
+                        .param("idx", "3")
+                        .param("title", "mockTest")
+                        .param("content", "mockTest")
+                        .param("category", "mockTest")
+                        .param("picture1", "mockTest1")
+                        .param("picture2", "mockTest2")
+                        .param("picture3", "mockTest3"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

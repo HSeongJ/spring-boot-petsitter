@@ -1,6 +1,6 @@
 package com.personal.petsitter.entities.board;
 
-import com.personal.petsitter.entities.base.BasePicturesEntity;
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import lombok.*;
 
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = "writer")
-public class BoardEntity extends BasePicturesEntity {
+public class BoardEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +31,19 @@ public class BoardEntity extends BasePicturesEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private CustomerEntity writer;
+
+    @Column(length = 500)
+    private String picture1;
+
+    @Column(length = 500)
+    private String picture2;
+
+    @Column(length = 500)
+    private String picture3;
+
+    @Column(length = 500)
+    private String picture4;
+
+    @Column(length = 500)
+    private String picture5;
 }

@@ -1,6 +1,6 @@
 package com.personal.petsitter.entities.product;
 
-import com.personal.petsitter.entities.base.BasePicturesEntity;
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +16,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @DynamicInsert
-public class ProductEntity extends BasePicturesEntity {
+public class ProductEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,4 +43,19 @@ public class ProductEntity extends BasePicturesEntity {
 
     @Column(name = "avg_rated", columnDefinition = "DECIMAL(2, 1) DEFAULT 0.0")
     private Double avgRated;
+
+    @Column(length = 500)
+    private String picture1;
+
+    @Column(length = 500)
+    private String picture2;
+
+    @Column(length = 500)
+    private String picture3;
+
+    @Column(length = 500)
+    private String picture4;
+
+    @Column(length = 500)
+    private String picture5;
 }

@@ -1,5 +1,6 @@
 package com.personal.petsitter.entities.board;
 
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = "board")
-public class BoardCommentEntity {
+public class BoardCommentEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

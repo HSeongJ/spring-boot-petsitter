@@ -1,6 +1,6 @@
 package com.personal.petsitter.entities.hospital;
 
-import com.personal.petsitter.entities.base.BasePicturesEntity;
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +13,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Getter
 @ToString
-public class HospitalEntity extends BasePicturesEntity {
+public class HospitalEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +37,19 @@ public class HospitalEntity extends BasePicturesEntity {
 
     @Column(length = 30)
     private String phonenumber;
+
+    @Column(length = 500)
+    private String picture1;
+
+    @Column(length = 500)
+    private String picture2;
+
+    @Column(length = 500)
+    private String picture3;
+
+    @Column(length = 500)
+    private String picture4;
+
+    @Column(length = 500)
+    private String picture5;
 }

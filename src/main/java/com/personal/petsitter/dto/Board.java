@@ -1,6 +1,5 @@
 package com.personal.petsitter.dto;
 
-import com.querydsl.core.Tuple;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -35,10 +34,31 @@ public class Board {
         private List<String> pictures;
     }
 
+    @Builder
+    @Setter
+    @Getter
+    public static class InsertInfo {
+        private Long idx;
+        private String title;
+        private String content;
+        private String category;
+        private String picture1;
+        private String picture2;
+        private String picture3;
+        private String picture4;
+        private String picture5;
+    }
+
     @AllArgsConstructor
     @Getter
     public static class ListResponse {
         private PageResultDTO<ListInfo> resultDTO;
     }
 
+    @AllArgsConstructor
+    @Getter
+    @ToString
+    public static class InsertResponse {
+        private String result;
+    }
 }

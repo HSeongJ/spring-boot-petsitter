@@ -3,6 +3,7 @@ package com.personal.petsitter.services.board;
 import com.personal.petsitter.dto.Board;
 import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.dto.PageResultDTO;
+import com.personal.petsitter.entities.board.BoardEntity;
 import com.personal.petsitter.repositories.board.BoardRepository;
 import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,17 @@ public class BoardServiceImpl implements BoardService {
         Tuple result = boardRepository.getDetail(idx);
 
         return tupleToDetailDTO(result);
+    }
+
+    @Override
+    public String insertBoard(Board.InsertInfo dto) {
+        try {
+            BoardEntity entity = dtoToEntity(dto);
+
+            boardRepository.save(entity);
+        } catch (Exception e) {
+            return "입력 실패";
+        }
+        return "입력 성공";
     }
 }

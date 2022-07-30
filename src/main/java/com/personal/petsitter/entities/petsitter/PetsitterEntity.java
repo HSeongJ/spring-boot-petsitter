@@ -1,6 +1,6 @@
 package com.personal.petsitter.entities.petsitter;
 
-import com.personal.petsitter.entities.base.BasePicturesEntity;
+import com.personal.petsitter.entities.base.BaseDateEntity;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @DynamicInsert
-public class PetsitterEntity extends BasePicturesEntity {
+public class PetsitterEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,4 +40,19 @@ public class PetsitterEntity extends BasePicturesEntity {
 
     @Column(length = 100)
     private String category;
+
+    @Column(length = 500)
+    private String picture1;
+
+    @Column(length = 500)
+    private String picture2;
+
+    @Column(length = 500)
+    private String picture3;
+
+    @Column(length = 500)
+    private String picture4;
+
+    @Column(length = 500)
+    private String picture5;
 }
