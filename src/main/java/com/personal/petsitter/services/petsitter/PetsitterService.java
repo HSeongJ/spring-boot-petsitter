@@ -10,6 +10,8 @@ public interface PetsitterService extends BasePicturesToList {
     Petsitter.DetailInfo getPetsitterInfo(Long idx);
     Petsitter.ListResponse getPetsitterList(PageRequestDTO pageRequestDTO);
 
+
+
     default Petsitter.ListInfo entityToListDTO(PetsitterEntity entity) {
         Petsitter.ListInfo dto = Petsitter.ListInfo.builder()
                 .petsitter_idx(entity.getIdx())

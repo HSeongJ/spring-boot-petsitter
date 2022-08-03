@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Petsitter {
@@ -37,6 +38,29 @@ public class Petsitter {
         private String category;
         private Double avgRated;
         private List<String> pictures;
+    }
+
+    @Builder
+    @Getter
+    public static class ReservationRequest {
+        private Long petsitterIdx;
+        private Long cusIdx;
+        private LocalDateTime startTime;
+        private LocalDateTime endTime;
+        private Integer price;
+    }
+
+    @Builder
+    @ToString
+    @Getter
+    public static class ReservationResponse {
+        private Long petresIdx;
+        private Long cusIdx;
+        private String petsitterName;
+        private LocalDateTime startTime;
+        private LocalDateTime endTime;
+        private Integer price;
+        private String payState;
     }
 
     @AllArgsConstructor

@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,6 +36,26 @@ public class PetsitterControllerTests {
         mockMvc.perform(
                         get("/petsitter/info/1")
                 )
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testReservationPetsitter() throws Exception {
+        mockMvc.perform(
+                post("/petsitter/reservation")
+                        .param("petsitter_idx", "1")
+                        .param("cus_idx", "1")
+                        .param("price", "10000"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testGetReservationList() throws Exception {
+        mockMvc.perform(
+                get("/petsitter/reservation/info")
+                        .param("cus_idx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

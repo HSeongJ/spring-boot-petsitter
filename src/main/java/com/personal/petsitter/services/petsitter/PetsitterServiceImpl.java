@@ -16,6 +16,7 @@ import java.util.function.Function;
 public class PetsitterServiceImpl implements PetsitterService {
 
     private final PetsitterRepository petsitterRepository;
+
     @Override
     public Petsitter.ListResponse getPetsitterList(PageRequestDTO pageRequestDTO) {
         Page<PetsitterEntity> results =  petsitterRepository.getList(pageRequestDTO);
