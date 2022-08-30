@@ -2,11 +2,13 @@ package com.personal.petsitter.repositories.board;
 
 import com.personal.petsitter.entities.board.BoardCommentEntity;
 import com.personal.petsitter.entities.board.BoardEntity;
+import com.personal.petsitter.entities.customer.CustomerEntity;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -30,5 +32,18 @@ public class BoardCommentRepositoryTests {
                     .build();
             boardCommentRepository.save(boardComment);
         });
+    }
+
+    @Test
+    @Transactional
+    public void showComment() {
+        log.info(boardCommentRepository.getReferenceById(1003L));
+    }
+
+    @Test
+    public void testGetReservation() {
+        BoardEntity entity = BoardEntity.builder().idx(12L).build();
+
+        log.info(boardCommentRepository.findBoardCommentEntitiesByBoardOrderByRegDateDesc(entity));
     }
 }

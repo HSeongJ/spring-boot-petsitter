@@ -49,6 +49,14 @@ public class Board {
         private String picture5;
     }
 
+    @Setter
+    public static class Comment {
+        private String writer;
+        private String content;
+        private LocalDateTime regDate;
+        private LocalDateTime modDate;
+    }
+
     @AllArgsConstructor
     @Getter
     public static class ListResponse {
