@@ -1,5 +1,6 @@
 package com.personal.petsitter.repositories.board;
 
+import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.entities.board.BoardCommentEntity;
 import com.personal.petsitter.entities.board.BoardEntity;
 import com.personal.petsitter.entities.customer.CustomerEntity;
@@ -7,8 +8,13 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
 import javax.transaction.Transactional;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> board_comment
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -20,7 +26,7 @@ public class BoardCommentRepositoryTests {
 
     @Test
     public void insertDummies() {
-        IntStream.rangeClosed(1, 1000).forEach(i -> {
+        IntStream.rangeClosed(1, 10).forEach(i -> {
             BoardEntity board = BoardEntity.builder()
                     .idx((long)(Math.random() * 100) + 1).build();
             log.info(board.getIdx());
@@ -35,6 +41,7 @@ public class BoardCommentRepositoryTests {
     }
 
     @Test
+<<<<<<< HEAD
     @Transactional
     public void showComment() {
         log.info(boardCommentRepository.getReferenceById(1003L));
@@ -46,4 +53,14 @@ public class BoardCommentRepositoryTests {
 
         log.info(boardCommentRepository.findBoardCommentEntitiesByBoardOrderByRegDateDesc(entity));
     }
+=======
+    public void testGetCommentByBoardIdx() {
+        List<Object[]> results = boardCommentRepository.getCommentByBoardIdx(1L);
+
+        for(Object[] list : results) {
+            log.info(list[0] + ", " + list[1] + ", " + list[2] + ", " + list[3] + ", " + list[4]);
+        }
+    }
+
+>>>>>>> board_comment
 }

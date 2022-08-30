@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
+import org.springframework.test.annotation.Commit;
 
 import javax.transaction.Transactional;
 import java.util.stream.IntStream;
@@ -38,7 +39,6 @@ public class BoardRepositoryTests {
         });
     }
 
-    @Transactional
     @Test
     public void testGetList() {
         PageRequestDTO dto = new PageRequestDTO();
