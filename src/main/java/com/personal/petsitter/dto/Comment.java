@@ -45,8 +45,8 @@ public class Comment {
     @Builder
     @Getter
     public static class PetsitterWrite {
-        private Long petsitter_idx;
-        private Long cus_idx;
+        private String petsitterName;
+        private String cusNickname;
         private String title;
         private String content;
         private Double rated;
