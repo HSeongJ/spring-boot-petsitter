@@ -1,20 +1,14 @@
 package com.personal.petsitter.repositories.board;
 
-import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.entities.board.BoardCommentEntity;
 import com.personal.petsitter.entities.board.BoardEntity;
-import com.personal.petsitter.entities.customer.CustomerEntity;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 
 import javax.transaction.Transactional;
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> board_comment
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -41,19 +35,12 @@ public class BoardCommentRepositoryTests {
     }
 
     @Test
-<<<<<<< HEAD
     @Transactional
     public void showComment() {
         log.info(boardCommentRepository.getReferenceById(1003L));
     }
 
     @Test
-    public void testGetReservation() {
-        BoardEntity entity = BoardEntity.builder().idx(12L).build();
-
-        log.info(boardCommentRepository.findBoardCommentEntitiesByBoardOrderByRegDateDesc(entity));
-    }
-=======
     public void testGetCommentByBoardIdx() {
         List<Object[]> results = boardCommentRepository.getCommentByBoardIdx(1L);
 
@@ -62,5 +49,4 @@ public class BoardCommentRepositoryTests {
         }
     }
 
->>>>>>> board_comment
 }

@@ -10,16 +10,11 @@ import java.util.List;
 
 public interface BoardCommentRepository extends JpaRepository<BoardCommentEntity, Long> {
 
-<<<<<<< HEAD
-    List<BoardCommentEntity> findBoardCommentEntitiesByBoardOrderByRegDateDesc(BoardEntity board);
-
-=======
-
     @Query( "SELECT bc.idx, c.nickname, bc.content, bc.regDate, bc.modDate " +
             "FROM BoardCommentEntity bc " +
             "LEFT JOIN bc.board " +
             "LEFT JOIN CustomerEntity c ON bc.replyWriter = c.idx " +
             "WHERE bc.board.idx = :idx")
     List<Object[]> getCommentByBoardIdx(@Param("idx")Long idx);
->>>>>>> board_comment
+
 }
