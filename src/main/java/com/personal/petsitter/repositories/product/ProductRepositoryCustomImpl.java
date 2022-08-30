@@ -42,7 +42,7 @@ public class ProductRepositoryCustomImpl extends QuerydslRepositorySupport imple
                         eqFamily(dto.getFamily()),
                         containKeyword(dto.getKeyword()));
 
-        long totalCount = query.stream().count();
+        long totalCount = query.fetch().size();
 
         List<Product.ListInfo> results = getQuerydsl()
                 .applyPagination(dto.getPageable(Sort.by("avgRated").descending()), query).fetch();

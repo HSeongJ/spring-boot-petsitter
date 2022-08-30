@@ -43,7 +43,7 @@ public class PetsitterReviewRepositoryCustomImpl extends QuerydslRepositorySuppo
                 .leftJoin(customerEntity).on(petsitterReviewEntity.reviewWriter.eq(customerEntity.idx))
                 .where(petsitterReviewEntity.petsitter.idx.eq(petsitter_idx));
 
-        long totalCount = query.fetchCount();
+        long totalCount = query.fetch().size();
 
         List<Comment.Petsitter> results = getQuerydsl()
                 .applyPagination(PageRequest.of(page - 1, 30, Sort.by("idx").descending()), query).fetch();

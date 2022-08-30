@@ -32,7 +32,7 @@ public class PetsitterRepositoryCustomImpl extends QuerydslRepositorySupport imp
                 .from(petsitterEntity) // + ; return JPQLQuery<E>
                 .where(eqCategory(dto.getCategory())); //return List
 
-        long totalCount = query.fetchCount();
+        long totalCount = query.fetch().size();
 
         List<PetsitterEntity> results = getQuerydsl()
                 .applyPagination(dto.getPageable(Sort.by("idx").descending()),

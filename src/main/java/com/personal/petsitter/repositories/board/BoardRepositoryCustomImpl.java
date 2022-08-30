@@ -51,7 +51,7 @@ public class BoardRepositoryCustomImpl extends QuerydslRepositorySupport impleme
 //                .orderBy(boardEntity.idx.desc())
 //                .offset((dto.getPage() - 1) * dto.getSize())
 //                .limit(dto.getSize() * 2)
-        long totalCount = query.fetchCount();
+        long totalCount = query.fetch().size();
 
         List<Board.ListInfo> results = getQuerydsl()
                 .applyPagination(dto.getPageable(Sort.by("idx").descending()),
