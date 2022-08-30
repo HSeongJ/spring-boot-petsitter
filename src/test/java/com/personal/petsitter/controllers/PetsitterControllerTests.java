@@ -59,4 +59,14 @@ public class PetsitterControllerTests {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void testGetPetsitterReview() throws Exception {
+        mockMvc.perform(
+                get("/petsitter/reivew")
+                        .param("petsitter_idx", "1")
+                        .param("page", "1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }

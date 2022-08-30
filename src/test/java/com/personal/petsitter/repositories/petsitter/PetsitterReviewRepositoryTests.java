@@ -30,4 +30,9 @@ public class PetsitterReviewRepositoryTests {
             repository.save(entity);
         });
     }
+
+    @Test
+    public void testGetReviewList() {
+        log.info(repository.getReviewList(1L, 1).toList());
+    }
 }

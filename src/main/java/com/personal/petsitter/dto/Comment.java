@@ -32,12 +32,13 @@ public class Comment {
     @Builder
     @ToString
     @Getter
+    @AllArgsConstructor
     public static class Petsitter {
         private Long idx;
         private String nickname;
         private String title;
         private String content;
-        private Double reted;
+        private Double rated;
         private LocalDateTime regDate;
         private LocalDateTime modDate;
     }
