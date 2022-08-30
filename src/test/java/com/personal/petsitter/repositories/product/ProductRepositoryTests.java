@@ -45,4 +45,9 @@ public class ProductRepositoryTests {
 
         log.info(productReposiroty.getList(dto).toList());
     }
+
+    @Test
+    public void testGetProduct() {
+        log.info(productReposiroty.findProductEntityByIdx(1L));
+    }
 }

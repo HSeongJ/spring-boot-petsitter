@@ -1,10 +1,7 @@
 package com.personal.petsitter.entities.product;
 
 import com.personal.petsitter.entities.base.BaseDateEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
@@ -15,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString
 @DynamicInsert
 public class ProductEntity extends BaseDateEntity {
 

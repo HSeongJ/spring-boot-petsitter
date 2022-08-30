@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class Product {
 
     @Builder
@@ -18,6 +21,23 @@ public class Product {
         private String content;
         private String picture;
         private Double avg_rated;
+    }
+
+    @Builder
+    @ToString
+    @Getter
+    @AllArgsConstructor
+    public static class DetailInfo {
+        private Long idx;
+        private String title;
+        private String content;
+        private String category;
+        private String family;
+        private Double avgRated;
+        private int price;
+        private LocalDateTime regDate;
+        private LocalDateTime modDate;
+        private List<String> pictures;
     }
 
     @AllArgsConstructor

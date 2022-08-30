@@ -56,6 +56,6 @@ public class Comment {
     @AllArgsConstructor
     @Getter
     public static class BoardResponse {
-        private List<Board> resultDTO;
+        private List<Comment.Board> resultDTO;
     }
 }
