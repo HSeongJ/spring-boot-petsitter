@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,6 +36,16 @@ public class ProductControllerTests {
     public void testGetDetail() throws Exception {
         mockMvc.perform(
                 get("/product/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testAddCart() throws Exception {
+        mockMvc.perform(
+                post("/product/addCart")
+                        .param("cus_idx", "1")
+                        .param("product_idx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

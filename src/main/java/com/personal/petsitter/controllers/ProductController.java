@@ -2,18 +2,18 @@ package com.personal.petsitter.controllers;
 
 import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.dto.Product;
+import com.personal.petsitter.services.product.ProductCartService;
 import com.personal.petsitter.services.product.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
+
+    private final ProductCartService productCartService;
 
     @GetMapping("/list")
     public Product.ListResponse getList(PageRequestDTO dto) {
@@ -23,5 +23,10 @@ public class ProductController {
     @GetMapping("/{product_idx}")
     public Product.DetailInfo getDetail(@PathVariable("product_idx")Long idx) {
         return productService.getDetail(idx);
+    }
+
+    @PostMapping("/addCart")
+    public String addCart(Long cus_idx, Long product_idx) {
+        return productCartService.addCart(cus_idx, product_idx);
     }
 }
