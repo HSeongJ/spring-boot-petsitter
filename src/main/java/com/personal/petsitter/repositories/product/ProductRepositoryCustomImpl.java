@@ -47,7 +47,6 @@ public class ProductRepositoryCustomImpl extends QuerydslRepositorySupport imple
         List<Product.ListInfo> results = getQuerydsl()
                 .applyPagination(dto.getPageable(Sort.by("avgRated").descending()), query).fetch();
 
-
         return new PageImpl<>(results, dto.getPageable(Sort.by("avgRated").descending()), totalCount);
     }
 
