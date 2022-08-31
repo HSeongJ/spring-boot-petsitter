@@ -5,6 +5,7 @@ import com.personal.petsitter.dto.Product;
 import com.personal.petsitter.services.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,5 +18,10 @@ public class ProductController {
     @GetMapping("/list")
     public Product.ListResponse getList(PageRequestDTO dto) {
         return productService.getList(dto);
+    }
+
+    @GetMapping("/{product_idx}")
+    public Product.DetailInfo getDetail(@PathVariable("product_idx")Long idx) {
+        return productService.getDetail(idx);
     }
 }

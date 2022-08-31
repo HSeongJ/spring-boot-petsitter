@@ -24,4 +24,9 @@ public class ProductServiceTests {
 
         log.info(service.getList(dto).getResultDTO());
     }
+
+    @Test
+    public void testGetDetail() {
+        log.info(service.getDetail(1L));
+    }
 }

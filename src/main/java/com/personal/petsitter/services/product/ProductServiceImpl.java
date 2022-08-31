@@ -19,4 +19,9 @@ public class ProductServiceImpl implements ProductService {
 
         return new Product.ListResponse(new PageResultDTO<>(results));
     }
+
+    @Override
+    public Product.DetailInfo getDetail(Long idx) {
+        return entityToDTO(reposiroty.findProductEntityByIdx(idx));
+    }
 }
