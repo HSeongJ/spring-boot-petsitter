@@ -30,4 +30,12 @@ public class ProductControllerTests {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void testGetDetail() throws Exception {
+        mockMvc.perform(
+                get("/product/1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }
