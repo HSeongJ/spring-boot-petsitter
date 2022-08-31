@@ -47,7 +47,7 @@ public class ProductRepositoryTests {
     }
 
     @Test
-    public void testGetProduct() {
+    public void testGetProductDetail() {
         log.info(productReposiroty.findProductEntityByIdx(1L));
     }
 }

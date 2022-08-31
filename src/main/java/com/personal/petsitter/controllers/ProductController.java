@@ -18,5 +18,4 @@ public class ProductController {
     public Product.ListResponse getList(PageRequestDTO dto) {
         return productService.getList(dto);
     }
-
 }
