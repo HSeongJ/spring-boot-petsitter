@@ -1,7 +1,6 @@
 package com.personal.petsitter.repositories.product;
 
 import com.personal.petsitter.dto.PageRequestDTO;
-import com.personal.petsitter.dto.PageResultDTO;
 import com.personal.petsitter.dto.Product;
 import com.personal.petsitter.entities.product.ProductEntity;
 import com.querydsl.core.types.Projections;
