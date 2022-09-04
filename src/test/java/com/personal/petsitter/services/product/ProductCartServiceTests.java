@@ -16,4 +16,9 @@ public class ProductCartServiceTests {
     public void testAddCart() {
         log.info(service.addCart(1L, 1L));
     }
+
+    @Test
+    public void testGetCartList() {
+        log.info(service.getCartList(1L));
+    }
 }

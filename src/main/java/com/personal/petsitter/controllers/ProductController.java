@@ -7,6 +7,8 @@ import com.personal.petsitter.services.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
@@ -28,5 +30,10 @@ public class ProductController {
     @PostMapping("/addCart")
     public String addCart(Long cus_idx, Long product_idx) {
         return productCartService.addCart(cus_idx, product_idx);
+    }
+
+    @GetMapping("/cartlist")
+    public List<Product.CartListInfo> getCartList(Long cus_idx) {
+        return productCartService.getCartList(cus_idx);
     }
 }

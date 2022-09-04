@@ -49,4 +49,13 @@ public class ProductControllerTests {
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void testGetCartList() throws Exception {
+        mockMvc.perform(
+                get("/product/cartlist")
+                        .param("cus_idx", "1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 }

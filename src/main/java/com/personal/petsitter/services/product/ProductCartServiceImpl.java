@@ -1,11 +1,14 @@
 package com.personal.petsitter.services.product;
 
+import com.personal.petsitter.dto.Product;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.product.ProductCartEntity;
 import com.personal.petsitter.entities.product.ProductEntity;
 import com.personal.petsitter.repositories.product.ProductCartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,5 +32,10 @@ public class ProductCartServiceImpl implements ProductCartService {
             return "추가 실패";
         }
         return "추가 완료";
+    }
+
+    @Override
+    public List<Product.CartListInfo> getCartList(Long cus_idx) {
+        return repository.getCartListInfo(cus_idx);
     }
 }
