@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -37,5 +38,10 @@ public class ProductCartRepositoryTests {
                 .build();
 
         repository.save(entity);
+    }
+
+    @Test
+    public void testGetCartList() {
+        log.info(repository.getCartListInfo(1L));
     }
 }

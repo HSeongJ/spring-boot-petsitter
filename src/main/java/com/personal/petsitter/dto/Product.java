@@ -40,6 +40,18 @@ public class Product {
         private List<String> pictures;
     }
 
+    @Builder
+    @ToString
+    @Getter
+    @AllArgsConstructor
+    public static class CartListInfo {
+        private Long cart_idx;
+        private String category;
+        private String title;
+        private int price;
+        private String picture;
+    }
+
     @AllArgsConstructor
     @Getter
     public static class ListResponse {
