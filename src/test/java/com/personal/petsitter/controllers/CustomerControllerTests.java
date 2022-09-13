@@ -29,6 +29,27 @@ public class CustomerControllerTests {
     }
 
     @Test
+    public void testModifyCustomerInfo() throws Exception {
+        mockMvc.perform(
+                post("/customer/update")
+                        .param("cusIdx", "1")
+                        .param("id", "mockTest")
+                        .param("password", "mockTestpass")
+                        .param("name", "mockTestName")
+                        .param("nickname", "mockTestNick")
+                        .param("gender", "MAIL")
+                        .param("email", "mockTest@test.com")
+                        .param("phonenumber", "01001231203")
+                        .param("address", "mockTestAddress")
+                        .param("picture", "mockTestPicture")
+                        .param("roleSet", "USER")
+                        .param("roleSet", "ADMIN")
+                        .param("state", "활성"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
     public void testGetPetList() throws Exception {
         mockMvc.perform(
                 get("/customer/pet/list/1"))
@@ -61,6 +82,15 @@ public class CustomerControllerTests {
                         .param("gender", "MAIL")
                         .param("age", "92")
                         .param("picture", "mockChange"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testDeletePet() throws Exception {
+        mockMvc.perform(
+                post("/customer/pet/delete")
+                        .param("petIdx", "302"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

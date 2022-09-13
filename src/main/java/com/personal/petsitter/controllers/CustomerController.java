@@ -22,6 +22,11 @@ public class CustomerController {
         return customerService.getCustomerInfo(idx);
     }
 
+    @PostMapping("/update")
+    public String modifyCustomerInfo(Customer.Info dto) {
+        return customerService.modifyCustomerInfo(dto);
+    }
+
     @GetMapping("/pet/list/{customerIdx}")
     public List<Pet.ListInfo> getPetList(@PathVariable("customerIdx")Long idx) {
         return customerPetService.getPetListInfo(idx);
@@ -35,5 +40,10 @@ public class CustomerController {
     @PostMapping("/pet/update")
     public String modifyPetInfo(Pet.PetWrite dto) {
         return customerPetService.modifyPetInfo(dto);
+    }
+
+    @PostMapping("/pet/delete")
+    public String deletePet(Long petIdx) {
+        return customerPetService.deletePet(petIdx);
     }
 }

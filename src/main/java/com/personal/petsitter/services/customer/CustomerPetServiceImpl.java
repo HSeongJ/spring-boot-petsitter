@@ -52,4 +52,14 @@ public class CustomerPetServiceImpl implements CustomerPetService{
             return "변경실패";
         }
     }
+
+    @Override
+    public String deletePet(Long petIdx) {
+        try {
+            repository.deleteById(petIdx);
+            return "삭제성공";
+        } catch (Exception e) {
+            return "삭제실패";
+        }
+    }
 }

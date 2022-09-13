@@ -12,6 +12,7 @@ public interface CustomerPetService {
 
     String addPet(Pet.PetWrite dto);
     String modifyPetInfo(Pet.PetWrite dto);
+    String deletePet(Long petIdx);
     default Pet.ListInfo entityToDTO(PetEntity entity) {
 
         Pet.ListInfo dto = Pet.ListInfo.builder()
@@ -36,7 +37,7 @@ public interface CustomerPetService {
                 .picture(dto.getPicture())
                 .customer(CustomerEntity.builder().idx(dto.getCustomerIdx()).build())
                 .build();
-        
+
         return entity;
     }
 }

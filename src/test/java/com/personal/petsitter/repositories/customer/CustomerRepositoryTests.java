@@ -1,21 +1,21 @@
 package com.personal.petsitter.repositories.customer;
 
-import com.personal.petsitter.dto.Pet;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.base.Gender;
 import com.personal.petsitter.entities.customer.CustomerEntity;
-import com.personal.petsitter.entities.customer.PetEntity;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
 @Log4j2
-public class CustomerRepostiryTests {
+public class CustomerRepositoryTests {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -49,5 +49,26 @@ public class CustomerRepostiryTests {
             log.info(result.get());
         else
             log.info(Optional.empty());
+    }
+
+
+    @Modifying
+    @Test
+    public void testModifyCustomerInfo() {
+        CustomerEntity entity = CustomerEntity.builder()
+                .idx(1L)
+                .id("testId")
+                .password("testPas")
+                .gender(Gender.FEMAIL)
+                .name("test1121")
+                .nickname("testnickname")
+                .email("test@test.com")
+                .phonenumber("0102301203")
+                .address("testa")
+                .picture("testp")
+                .state("활성")
+                .build();
+
+        log.info(customerRepository.save(entity));
     }
 }

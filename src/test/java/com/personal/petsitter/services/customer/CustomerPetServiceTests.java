@@ -46,4 +46,9 @@ public class CustomerPetServiceTests {
 
         log.info(service.modifyPetInfo(dto));
     }
+
+    @Test
+    public void testDeletePet() {
+        log.info(service.deletePet(301L));
+    }
 }

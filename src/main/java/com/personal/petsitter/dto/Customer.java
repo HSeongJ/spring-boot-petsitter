@@ -15,6 +15,8 @@ public class Customer {
     @Getter
     public static class Info {
         private Long cusIdx;
+        private String id;
+        private String password;
         private String name;
         private String nickname;
         private Gender gender;
@@ -23,6 +25,7 @@ public class Customer {
         private String address;
         private String picture;
         private Set<CustomerRole> roleSet;
+        private String state;
     }
 
 }
