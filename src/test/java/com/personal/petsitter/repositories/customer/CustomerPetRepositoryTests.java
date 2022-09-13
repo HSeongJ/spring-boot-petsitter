@@ -33,6 +33,20 @@ public class CustomerPetRepositoryTests {
     }
 
     @Test
+    public void testUpdate() {
+        PetEntity entity = PetEntity.builder()
+                .idx(2L)
+                .customer(CustomerEntity.builder().idx(3L).build())
+                .family("Change")
+                .picture("Change")
+                .age(33)
+                .gender(Gender.MAIL)
+                .name("Change")
+                .build();
+
+        repository.save(entity);
+    }
+    @Test
     public void testGetPetList() {
         log.info(repository.findPetEntitiesByCustomer(CustomerEntity.builder().idx(1L).build()));
     }

@@ -1,8 +1,10 @@
 package com.personal.petsitter.repositories.customer;
 
+import com.personal.petsitter.dto.Pet;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.base.Gender;
 import com.personal.petsitter.entities.customer.CustomerEntity;
+import com.personal.petsitter.entities.customer.PetEntity;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
