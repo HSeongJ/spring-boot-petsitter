@@ -28,23 +28,13 @@ public class CustomerControllerTests {
                 .andDo(print());
     }
 
+
     @Test
-    public void testModifyCustomerInfo() throws Exception {
+    public void testUpdateCustomerPhonenumber() throws Exception {
         mockMvc.perform(
-                post("/customer/update")
+                post("/customer/update/phonenumber")
                         .param("cusIdx", "1")
-                        .param("id", "mockTest")
-                        .param("password", "mockTestpass")
-                        .param("name", "mockTestName")
-                        .param("nickname", "mockTestNick")
-                        .param("gender", "MAIL")
-                        .param("email", "mockTest@test.com")
-                        .param("phonenumber", "01001231203")
-                        .param("address", "mockTestAddress")
-                        .param("picture", "mockTestPicture")
-                        .param("roleSet", "USER")
-                        .param("roleSet", "ADMIN")
-                        .param("state", "활성"))
+                        .param("phonenumber", "01012341234"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

@@ -52,23 +52,8 @@ public class CustomerRepositoryTests {
     }
 
 
-    @Modifying
     @Test
-    public void testModifyCustomerInfo() {
-        CustomerEntity entity = CustomerEntity.builder()
-                .idx(1L)
-                .id("testId")
-                .password("testPas")
-                .gender(Gender.FEMAIL)
-                .name("test1121")
-                .nickname("testnickname")
-                .email("test@test.com")
-                .phonenumber("0102301203")
-                .address("testa")
-                .picture("testp")
-                .state("활성")
-                .build();
-
-        log.info(customerRepository.save(entity));
+    public void testUpdatePhonenumber() {
+        customerRepository.updateCustomerPhonenumber(1L, "01012344444");
     }
 }

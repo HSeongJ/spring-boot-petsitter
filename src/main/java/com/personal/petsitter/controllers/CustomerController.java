@@ -22,9 +22,14 @@ public class CustomerController {
         return customerService.getCustomerInfo(idx);
     }
 
-    @PostMapping("/update")
-    public String modifyCustomerInfo(Customer.Info dto) {
-        return customerService.modifyCustomerInfo(dto);
+    @PostMapping("/update/phonenumber")
+    public String updatePhonenumber(Long cusIdx, String phonenumber) {
+        return customerService.updatePhonenumber(cusIdx, phonenumber);
+    }
+
+    @PostMapping("/update/address")
+    public String updateAddress(Long cusIdx, String address) {
+        return customerService.updateAddress(cusIdx, address);
     }
 
     @GetMapping("/pet/list/{customerIdx}")

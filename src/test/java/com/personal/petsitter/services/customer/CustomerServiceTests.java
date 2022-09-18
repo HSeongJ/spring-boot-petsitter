@@ -24,22 +24,7 @@ public class CustomerServiceTests {
     }
 
     @Test
-    public void testModifyCustomerInfo() {
-        Customer.Info dto = Customer.Info.builder()
-                .cusIdx(1L)
-                .id("ChangeId")
-                .password("ChangePassword")
-                .name("ChangeName")
-                .nickname("ChangeNickname")
-                .gender(Gender.FEMAIL)
-                .email("Change@test.com")
-                .phonenumber("010231023010")
-                .picture("ChangePicture")
-                .address("ChangeAddress")
-                .roleSet(Collections.singleton(CustomerRole.USER))
-                .state("활성")
-                .build();
-
-        log.info(service.modifyCustomerInfo(dto));
+    public void testUpdateCustomerPhonenumber() {
+        log.info(service.updatePhonenumber(1L, "01011223344"));
     }
 }

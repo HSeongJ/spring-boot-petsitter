@@ -27,12 +27,22 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
-    @Modifying
     @Override
-    public String modifyCustomerInfo(Customer.Info dto) {
+    public String updatePhonenumber(Long cusIdx, String phonenumber) {
         try {
-            CustomerEntity entity = infoDtoToEntity(dto);
-            repository.save(entity);
+            repository.updateCustomerPhonenumber(cusIdx, phonenumber);
+
+            return "success";
+        } catch (Exception e) {
+            return "fail";
+        }
+    }
+
+    @Override
+    public String updateAddress(Long cusIdx, String address) {
+        try {
+            repository.updateCustomerPhonenumber(cusIdx, address);
+
             return "success";
         } catch (Exception e) {
             return "fail";
