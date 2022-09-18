@@ -44,7 +44,7 @@ public class ProductControllerTests {
     public void testAddCart() throws Exception {
         mockMvc.perform(
                 post("/product/addCart")
-                        .param("cusIdx", "1")
+                        .param("customerIdx", "1")
                         .param("productIdx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
@@ -54,7 +54,7 @@ public class ProductControllerTests {
     public void testGetCartList() throws Exception {
         mockMvc.perform(
                 get("/product/cartList")
-                        .param("cusIdx", "1"))
+                        .param("customerIdx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

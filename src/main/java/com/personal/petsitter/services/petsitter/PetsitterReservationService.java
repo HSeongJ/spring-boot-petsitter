@@ -4,7 +4,6 @@ import com.personal.petsitter.dto.Petsitter;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterReservationEntity;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.List;
 
@@ -12,10 +11,10 @@ public interface PetsitterReservationService {
 
     String insertReservation(Petsitter.ReservationRequest reservationInfo);
 
-    List<Petsitter.ReservationResponse> getReservation(Long cusIdx);
+    List<Petsitter.ReservationResponse> getReservation(Long customerIdx);
 
     default PetsitterReservationEntity dtoToReservationEntity(Petsitter.ReservationRequest dto) {
-        CustomerEntity customer = CustomerEntity.builder().idx(dto.getCusIdx()).build();
+        CustomerEntity customer = CustomerEntity.builder().idx(dto.getCustomerIdx()).build();
         PetsitterEntity petsitter = PetsitterEntity.builder().idx(dto.getPetsitterIdx()).build();
 
         PetsitterReservationEntity entity = PetsitterReservationEntity.builder()
@@ -33,7 +32,7 @@ public interface PetsitterReservationService {
         Petsitter.ReservationResponse dto = Petsitter.ReservationResponse.builder()
                 .petresIdx(entity.getIdx())
                 .petsitterName(entity.getPetsitter().getName())
-                .cusIdx(entity.getCustomer().getIdx())
+                .customerIdx(entity.getCustomer().getIdx())
                 .startTime(entity.getStartTime())
                 .endTime(entity.getEndTime())
                 .price(entity.getPrice())

@@ -14,7 +14,7 @@ public interface BoardCommentService {
         BoardEntity board = BoardEntity.builder().idx(dto.getBoardIdx()).build();
 
         BoardCommentEntity entity = BoardCommentEntity.builder()
-                .replyWriter(dto.getCusIdx())
+                .replyWriter(dto.getCustomerIdx())
                 .content(dto.getContent())
                 .board(board)
                 .build();

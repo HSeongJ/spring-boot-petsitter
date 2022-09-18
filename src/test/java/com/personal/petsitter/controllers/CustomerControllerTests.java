@@ -33,7 +33,7 @@ public class CustomerControllerTests {
     public void testUpdateCustomerPhonenumber() throws Exception {
         mockMvc.perform(
                 post("/customer/update/phonenumber")
-                        .param("cusIdx", "1")
+                        .param("customerIdx", "1")
                         .param("phonenumber", "01012341234"))
                 .andExpect(status().isOk())
                 .andDo(print());

@@ -39,8 +39,8 @@ public class PetsitterController {
     }
 
     @GetMapping("/reservation/info")
-    public List<Petsitter.ReservationResponse> getReservationList(Long cus_idx) {
-        return reservationService.getReservation(cus_idx);
+    public List<Petsitter.ReservationResponse> getReservationList(Long customerIdx) {
+        return reservationService.getReservation(customerIdx);
     }
 
     @GetMapping("/review")

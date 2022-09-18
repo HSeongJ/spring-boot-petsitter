@@ -32,8 +32,8 @@ public class PetsitterReservationServiceImpl implements PetsitterReservationServ
 
     @Transactional
     @Override
-    public List<Petsitter.ReservationResponse> getReservation(Long cusIdx) {
-        CustomerEntity customer = CustomerEntity.builder().idx(cusIdx).build();
+    public List<Petsitter.ReservationResponse> getReservation(Long customerIdx) {
+        CustomerEntity customer = CustomerEntity.builder().idx(customerIdx).build();
 
         List<PetsitterReservationEntity> entities = repository.findPetsitterReservationEntitiesByCustomer(customer);
 

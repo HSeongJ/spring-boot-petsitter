@@ -18,8 +18,8 @@ public class CustomerPetServiceImpl implements CustomerPetService{
     private final CustomerPetRepository repository;
 
     @Override
-    public List<Pet.ListInfo> getPetListInfo(Long cusIdx) {
-        CustomerEntity customer = CustomerEntity.builder().idx(cusIdx).build();
+    public List<Pet.ListInfo> getPetListInfo(Long customerIdx) {
+        CustomerEntity customer = CustomerEntity.builder().idx(customerIdx).build();
 
         List<PetEntity> results = repository.findPetEntitiesByCustomer(customer);
 

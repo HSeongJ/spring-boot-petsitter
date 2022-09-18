@@ -37,8 +37,8 @@ public class ProductController {
     }
 
     @PostMapping("/addCart")
-    public String addCart(Long cusIdx, Long productIdx) {
-        return productCartService.addCart(cusIdx, productIdx);
+    public String addCart(Long customerIdx, Long productIdx) {
+        return productCartService.addCart(customerIdx, productIdx);
     }
 
     @GetMapping("/cartList")

@@ -17,13 +17,13 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
 
     @Modifying
     @Transactional
-    @Query("UPDATE CustomerEntity c SET c.phonenumber =:phonenumber WHERE c.idx =:cusIdx")
-    Integer updateCustomerPhonenumber(@Param("cusIdx") Long cusIdx,
+    @Query("UPDATE CustomerEntity c SET c.phonenumber =:phonenumber WHERE c.idx =:customerIdx")
+    Integer updateCustomerPhonenumber(@Param("customerIdx") Long customerIdx,
                                       @Param("phonenumber") String phonenumber);
 
     @Modifying
     @Transactional
-    @Query("UPDATE CustomerEntity c SET c.address =:address WHERE c.idx =:cusIdx")
-    Integer updateCustomerAddress(@Param("cusIdx") Long cusIdx,
+    @Query("UPDATE CustomerEntity c SET c.address =:address WHERE c.idx =:customerIdx")
+    Integer updateCustomerAddress(@Param("customerIdx") Long customerIdx,
                                       @Param("address") String address);
 }

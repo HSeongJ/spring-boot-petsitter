@@ -7,13 +7,13 @@ public interface CustomerService {
 
     Customer.Info getCustomerInfo(Long idx);
 
-    String updatePhonenumber(Long cusIdx, String phonenumber);
+    String updatePhonenumber(Long customerIdx, String phonenumber);
 
-    String updateAddress(Long cusIdx, String address);
+    String updateAddress(Long customerIdx, String address);
 
     default Customer.Info entityToDTO(CustomerEntity entity) {
         Customer.Info dto = Customer.Info.builder()
-                .cusIdx(entity.getIdx())
+                .customerIdx(entity.getIdx())
                 .id(entity.getId())
                 .password(entity.getPassword())
                 .name(entity.getName())

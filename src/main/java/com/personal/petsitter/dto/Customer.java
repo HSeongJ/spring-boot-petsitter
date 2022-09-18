@@ -14,7 +14,7 @@ public class Customer {
     @ToString
     @Getter
     public static class Info {
-        private Long cusIdx;
+        private Long customerIdx;
         private String id;
         private String password;
         private String name;

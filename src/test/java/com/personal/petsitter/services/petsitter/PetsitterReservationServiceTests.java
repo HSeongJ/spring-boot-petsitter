@@ -5,9 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
 
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @SpringBootTest
@@ -21,7 +19,7 @@ public class PetsitterReservationServiceTests {
     public void testInsertReservation () {
         Petsitter.ReservationRequest dto = Petsitter.ReservationRequest.builder()
                 .petsitterIdx(1L)
-                .cusIdx(1L)
+                .customerIdx(1L)
                 .startTime(LocalDateTime.parse("2022-09-14T16:00:00"))
                 .endTime(LocalDateTime.parse("2022-09-14T20:00:00"))
                 .price(100000)

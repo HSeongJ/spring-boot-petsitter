@@ -18,7 +18,7 @@ public class ProductCartRepositoryCustomImpl implements ProductCartRepositoryCus
 
     @Override
     @Transactional
-    public List<Product.CartListInfo> getCartListInfo(Long cusIdx) {
+    public List<Product.CartListInfo> getCartListInfo(Long customerIdx) {
         List<Product.CartListInfo> entity = jpaQueryFactory
                 .select(Projections.constructor(Product.CartListInfo.class,
                         productCartEntity.idx,
@@ -27,7 +27,7 @@ public class ProductCartRepositoryCustomImpl implements ProductCartRepositoryCus
                         productCartEntity.product.price,
                         productCartEntity.product.picture1))
                 .from(productCartEntity)
-                .where(productCartEntity.customer.idx.eq(cusIdx)).fetch();
+                .where(productCartEntity.customer.idx.eq(customerIdx)).fetch();
 
         return entity;
     }

@@ -64,7 +64,7 @@ public class BoardControllerTests {
         mockMvc.perform(
                 post("/board/comment/insert")
                         .param("boardIdx", "1")
-                        .param("cusIdx", "1")
+                        .param("customerIdx", "1")
                         .param("content", "mockTest"))
                 .andExpect(status().isOk())
                 .andDo(print());

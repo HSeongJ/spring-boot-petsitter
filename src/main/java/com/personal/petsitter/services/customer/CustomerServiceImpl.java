@@ -28,9 +28,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String updatePhonenumber(Long cusIdx, String phonenumber) {
+    public String updatePhonenumber(Long customerIdx, String phonenumber) {
         try {
-            repository.updateCustomerPhonenumber(cusIdx, phonenumber);
+            repository.updateCustomerPhonenumber(customerIdx, phonenumber);
 
             return "success";
         } catch (Exception e) {
@@ -39,9 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String updateAddress(Long cusIdx, String address) {
+    public String updateAddress(Long customerIdx, String address) {
         try {
-            repository.updateCustomerPhonenumber(cusIdx, address);
+            repository.updateCustomerPhonenumber(customerIdx, address);
 
             return "success";
         } catch (Exception e) {

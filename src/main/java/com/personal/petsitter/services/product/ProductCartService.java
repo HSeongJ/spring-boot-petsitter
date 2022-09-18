@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductCartService {
 
-    String addCart(Long cusIdx, Long productIdx);
+    String addCart(Long customerIdx, Long productIdx);
 
-    List<Product.CartListInfo> getCartList(Long cusIdx);
+    List<Product.CartListInfo> getCartList(Long customerIdx);
 }
