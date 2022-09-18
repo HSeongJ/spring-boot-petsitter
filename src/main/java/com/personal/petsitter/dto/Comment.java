@@ -53,9 +53,34 @@ public class Comment {
         private Double rated;
     }
 
+    @Builder
+    @Getter
+    public static class Product {
+        private String idx;
+        private String nickname;
+        private String title;
+        private String content;
+        private Double rated;
+        private List<String> pictures;
+    }
+
     @AllArgsConstructor
     @Getter
     public static class BoardResponse {
-        private List<Comment.Board> resultDTO;
+        private List<Board> resultDTO;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    @ToString
+    public static class PetsitterResponse {
+        private PageResultDTO<Petsitter> resultDTO;
+    }
+
+    @AllArgsConstructor
+    @Getter
+    @ToString
+    public static class ProductResponse {
+        private PageResultDTO<Product> resultDTO;
     }
 }

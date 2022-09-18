@@ -6,6 +6,7 @@ import com.personal.petsitter.dto.Petsitter;
 import com.personal.petsitter.services.petsitter.PetsitterReservationService;
 import com.personal.petsitter.services.petsitter.PetsitterReviewService;
 import com.personal.petsitter.services.petsitter.PetsitterService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +44,7 @@ public class PetsitterController {
     }
 
     @GetMapping("/review")
-    public List<Comment.Petsitter> getPetsitterReview(Long petsitter_idx, int page) {
+    public Comment.PetsitterResponse getPetsitterReview(Long petsitter_idx, int page) {
         return petsitterReviewService.getPetsitterReview(petsitter_idx, page);
     }
 }

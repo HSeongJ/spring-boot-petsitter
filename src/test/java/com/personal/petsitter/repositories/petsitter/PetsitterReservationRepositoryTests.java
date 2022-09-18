@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -34,6 +35,19 @@ public class PetsitterReservationRepositoryTests {
 
             repository.save(entity);
         });
+    }
+
+    @Test
+    public void insertTest() {
+        PetsitterReservationEntity entity = PetsitterReservationEntity.builder()
+                .customer(CustomerEntity.builder().idx(1L).build())
+                .petsitter(PetsitterEntity.builder().idx(1L).build())
+                .price(10000)
+                .startTime(LocalDateTime.parse("2022-09-14T16:00:00"))
+                .endTime(LocalDateTime.parse("2022-09-14T20:00:00"))
+                .build();
+
+        repository.save(entity);
     }
 
     @Test

@@ -22,8 +22,8 @@ public class PetsitterReservationServiceTests {
         Petsitter.ReservationRequest dto = Petsitter.ReservationRequest.builder()
                 .petsitterIdx(1L)
                 .cusIdx(1L)
-                .startTime(LocalDateTime.now())
-                .endTime(LocalDateTime.now())
+                .startTime(LocalDateTime.parse("2022-09-14T16:00:00"))
+                .endTime(LocalDateTime.parse("2022-09-14T20:00:00"))
                 .price(100000)
                 .build();
 

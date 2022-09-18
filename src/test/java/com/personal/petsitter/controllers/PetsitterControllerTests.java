@@ -44,9 +44,12 @@ public class PetsitterControllerTests {
     public void testReservationPetsitter() throws Exception {
         mockMvc.perform(
                 post("/petsitter/reservation")
-                        .param("petsitter_idx", "1")
-                        .param("cus_idx", "1")
-                        .param("price", "10000"))
+                        .param("petsitterIdx", "1")
+                        .param("cusIdx", "1")
+                        .param("price", "10000")
+                        .param("startTime", "2022-09-14T16:00:00")
+                        .param("endTime", "2022-09-14T20:00:00")
+                )
                 .andExpect(status().isOk())
                 .andDo(print());
     }
@@ -63,7 +66,7 @@ public class PetsitterControllerTests {
     @Test
     public void testGetPetsitterReview() throws Exception {
         mockMvc.perform(
-                get("/petsitter/reivew")
+                get("/petsitter/review")
                         .param("petsitter_idx", "1")
                         .param("page", "1"))
                 .andExpect(status().isOk())
