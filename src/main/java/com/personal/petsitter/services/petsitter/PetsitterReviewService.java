@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PetsitterReviewService {
 
-    Comment.PetsitterResponse getPetsitterReview(Long petsitter_idx, int page);
+    Comment.PetsitterResponse getPetsitterReview(Long petsitterIdx, int page);
 }

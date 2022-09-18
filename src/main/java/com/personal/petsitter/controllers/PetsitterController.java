@@ -28,8 +28,8 @@ public class PetsitterController {
         return petsitterService.getPetsitterList(dto);
     }
 
-    @GetMapping("/info/{petsitter_idx}")
-    public Petsitter.DetailInfo getInfo(@PathVariable("petsitter_idx")Long idx) {
+    @GetMapping("/info/{petsitterIdx}")
+    public Petsitter.DetailInfo getInfo(@PathVariable("petsitterIdx")Long idx) {
         return petsitterService.getPetsitterInfo(idx);
     }
 
@@ -44,7 +44,7 @@ public class PetsitterController {
     }
 
     @GetMapping("/review")
-    public Comment.PetsitterResponse getPetsitterReview(Long petsitter_idx, int page) {
-        return petsitterReviewService.getPetsitterReview(petsitter_idx, page);
+    public Comment.PetsitterResponse getPetsitterReview(Long petsitterIdx, int page) {
+        return petsitterReviewService.getPetsitterReview(petsitterIdx, page);
     }
 }

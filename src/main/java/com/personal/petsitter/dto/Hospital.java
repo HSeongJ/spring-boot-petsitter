@@ -11,7 +11,7 @@ public class Hospital {
     @ToString
     @Getter
     public static class Info {
-        private Long hospital_idx;
+        private Long hospitalIdx;
         private String name;
         private String content;
         private String openTime;

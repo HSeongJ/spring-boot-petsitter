@@ -11,10 +11,10 @@ public interface BoardCommentService {
     String insertComment(Comment.BoardWrite dto);
 
     default BoardCommentEntity dtoToEntity(Comment.BoardWrite dto) {
-        BoardEntity board = BoardEntity.builder().idx(dto.getBoard_idx()).build();
+        BoardEntity board = BoardEntity.builder().idx(dto.getBoardIdx()).build();
 
         BoardCommentEntity entity = BoardCommentEntity.builder()
-                .replyWriter(dto.getCus_idx())
+                .replyWriter(dto.getCusIdx())
                 .content(dto.getContent())
                 .board(board)
                 .build();

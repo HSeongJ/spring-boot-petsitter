@@ -21,8 +21,8 @@ public class HospitalController {
         return hospitalService.getHospitalList(dto);
     }
 
-    @GetMapping("/info/{hospital_idx}")
-    public Hospital.Info getInfo(@PathVariable("hospital_idx")Long idx) {
+    @GetMapping("/info/{hospitalIdx}")
+    public Hospital.Info getInfo(@PathVariable("hospitalIdx")Long idx) {
         return hospitalService.getHospitalInfo(idx);
     }
 }

@@ -14,7 +14,7 @@ public interface PetsitterService extends BasePicturesToList {
 
     default Petsitter.ListInfo entityToListDTO(PetsitterEntity entity) {
         Petsitter.ListInfo dto = Petsitter.ListInfo.builder()
-                .petsitter_idx(entity.getIdx())
+                .petsitterIdx(entity.getIdx())
                 .name(entity.getName())
                 .content(entity.getContent())
                 .career(entity.getCareer())
@@ -30,7 +30,7 @@ public interface PetsitterService extends BasePicturesToList {
 
     default Petsitter.DetailInfo entityToDetailDTO(PetsitterEntity entity) {
         Petsitter.DetailInfo dto = Petsitter.DetailInfo.builder()
-                .petsitter_idx(entity.getIdx())
+                .petsitterIdx(entity.getIdx())
                 .name(entity.getName())
                 .content(entity.getContent())
                 .career(entity.getCareer())

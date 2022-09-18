@@ -5,5 +5,5 @@ import org.springframework.data.domain.Page;
 
 public interface PetsitterReviewRepositoryCustom {
 
-    Page<Comment.Petsitter> getReviewList(Long petsitter_idx, int page);
+    Page<Comment.Petsitter> getReviewList(Long petsitterIdx, int page);
 }

@@ -28,7 +28,7 @@ public class PetsitterReviewRepositoryCustomImpl extends QuerydslRepositorySuppo
     }
 
     @Override
-    public Page<Comment.Petsitter> getReviewList(Long petsitter_idx, int page) {
+    public Page<Comment.Petsitter> getReviewList(Long petsitterIdx, int page) {
         JPAQuery<Comment.Petsitter> query = jpaQueryFactory
                 .select(Projections.constructor(Comment.Petsitter.class,
                         petsitterReviewEntity.idx,
@@ -41,7 +41,7 @@ public class PetsitterReviewRepositoryCustomImpl extends QuerydslRepositorySuppo
                 ))
                 .from(petsitterReviewEntity)
                 .leftJoin(customerEntity).on(petsitterReviewEntity.reviewWriter.eq(customerEntity.idx))
-                .where(petsitterReviewEntity.petsitter.idx.eq(petsitter_idx));
+                .where(petsitterReviewEntity.petsitter.idx.eq(petsitterIdx));
 
         long totalCount = query.fetch().size();
 

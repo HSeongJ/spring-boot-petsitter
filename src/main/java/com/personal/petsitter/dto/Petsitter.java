@@ -16,7 +16,7 @@ public class Petsitter {
     @ToString
     @Getter
     public static class ListInfo {
-        private Long petsitter_idx;
+        private Long petsitterIdx;
         private String name;
         private String content;
         private String career;
@@ -30,7 +30,7 @@ public class Petsitter {
     @ToString
     @Getter
     public static class DetailInfo {
-        private Long petsitter_idx;
+        private Long petsitterIdx;
         private String name;
         private String content;
         private String career;

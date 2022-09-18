@@ -23,8 +23,8 @@ public class BoardController {
         return boardService.getBoardList(dto);
     }
 
-    @GetMapping("/{board_idx}")
-    public Board.DetailInfo getDetailInfo(@PathVariable("board_idx")Long idx) {
+    @GetMapping("/{boardIdx}")
+    public Board.DetailInfo getDetailInfo(@PathVariable("boardIdx")Long idx) {
         return boardService.getDetailInfo(idx);
     }
 
@@ -33,8 +33,8 @@ public class BoardController {
         return boardService.insertBoard(dto);
     }
 
-    @GetMapping("/comment/{board_idx}")
-    public Comment.BoardResponse getCommentList(@PathVariable("board_idx")Long idx) {
+    @GetMapping("/comment/{boardIdx}")
+    public Comment.BoardResponse getCommentList(@PathVariable("boardIdx")Long idx) {
         return boardCommentService.getCommentList(idx);
     }
 

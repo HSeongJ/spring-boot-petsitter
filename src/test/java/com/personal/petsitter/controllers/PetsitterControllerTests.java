@@ -58,7 +58,7 @@ public class PetsitterControllerTests {
     public void testGetReservationList() throws Exception {
         mockMvc.perform(
                 get("/petsitter/reservation/info")
-                        .param("cus_idx", "1"))
+                        .param("cusIdx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

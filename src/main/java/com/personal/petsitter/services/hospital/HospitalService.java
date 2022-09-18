@@ -13,7 +13,7 @@ public interface HospitalService extends BasePicturesToList {
 
     default Hospital.Info entityToInfoDTo(HospitalEntity hospitalEntity) {
         Hospital.Info dto = Hospital.Info.builder()
-                .hospital_idx(hospitalEntity.getIdx())
+                .hospitalIdx(hospitalEntity.getIdx())
                 .name(hospitalEntity.getName())
                 .content(hospitalEntity.getContent())
                 .openTime(hospitalEntity.getOpenTime().toString())

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ProductCartRepositoryCustom {
 
-    List<Product.CartListInfo> getCartListInfo(Long cus_idx);
+    List<Product.CartListInfo> getCartListInfo(Long cusIdx);
 }

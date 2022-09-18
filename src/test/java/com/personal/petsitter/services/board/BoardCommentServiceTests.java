@@ -21,8 +21,8 @@ public class BoardCommentServiceTests {
     @Test
     public void testInsertComment() {
         Comment.BoardWrite dto = Comment.BoardWrite.builder()
-                .board_idx(1L)
-                .cus_idx(1L)
+                .boardIdx(1L)
+                .cusIdx(1L)
                 .content("LdfasfdjaslfjasjdfkTest")
                 .build();
 

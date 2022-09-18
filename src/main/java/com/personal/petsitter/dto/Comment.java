@@ -24,8 +24,8 @@ public class Comment {
     @Builder
     @Getter
     public static class BoardWrite {
-        private Long board_idx;
-        private Long cus_idx;
+        private Long boardIdx;
+        private Long cusIdx;
         private String content;
     }
 
@@ -55,13 +55,21 @@ public class Comment {
 
     @Builder
     @Getter
+    @AllArgsConstructor
+    @ToString
     public static class Product {
-        private String idx;
+        private Long idx;
         private String nickname;
         private String title;
         private String content;
         private Double rated;
-        private List<String> pictures;
+        private LocalDateTime regDate;
+        private LocalDateTime modDate;
+        private String picture1;
+        private String picture2;
+        private String picture3;
+        private String picture4;
+        private String picture5;
     }
 
     @AllArgsConstructor

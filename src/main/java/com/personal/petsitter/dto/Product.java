@@ -45,7 +45,7 @@ public class Product {
     @Getter
     @AllArgsConstructor
     public static class CartListInfo {
-        private Long cart_idx;
+        private Long cartIdx;
         private String category;
         private String title;
         private int price;

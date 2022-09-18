@@ -44,8 +44,8 @@ public class ProductControllerTests {
     public void testAddCart() throws Exception {
         mockMvc.perform(
                 post("/product/addCart")
-                        .param("cus_idx", "1")
-                        .param("product_idx", "1"))
+                        .param("cusIdx", "1")
+                        .param("productIdx", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
@@ -53,8 +53,18 @@ public class ProductControllerTests {
     @Test
     public void testGetCartList() throws Exception {
         mockMvc.perform(
-                get("/product/cartlist")
-                        .param("cus_idx", "1"))
+                get("/product/cartList")
+                        .param("cusIdx", "1"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    public void testGetReview() throws Exception {
+        mockMvc.perform(
+                get("/product/review")
+                        .param("productIdx", "1")
+                        .param("page", "1"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

@@ -63,8 +63,8 @@ public class BoardControllerTests {
     public void testInsertComment() throws Exception {
         mockMvc.perform(
                 post("/board/comment/insert")
-                        .param("board_idx", "1")
-                        .param("cus_idx", "1")
+                        .param("boardIdx", "1")
+                        .param("cusIdx", "1")
                         .param("content", "mockTest"))
                 .andExpect(status().isOk())
                 .andDo(print());

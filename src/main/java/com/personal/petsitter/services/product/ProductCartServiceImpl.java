@@ -17,10 +17,10 @@ public class ProductCartServiceImpl implements ProductCartService {
     private final ProductCartRepository repository;
 
     @Override
-    public String addCart(Long cus_idx, Long product_idx) {
+    public String addCart(Long cusIdx, Long productIdx) {
         try {
-            CustomerEntity customer = CustomerEntity.builder().idx(cus_idx).build();
-            ProductEntity product = ProductEntity.builder().idx(product_idx).build();
+            CustomerEntity customer = CustomerEntity.builder().idx(cusIdx).build();
+            ProductEntity product = ProductEntity.builder().idx(productIdx).build();
 
             ProductCartEntity entity = ProductCartEntity.builder()
                     .customer(customer)
@@ -35,7 +35,7 @@ public class ProductCartServiceImpl implements ProductCartService {
     }
 
     @Override
-    public List<Product.CartListInfo> getCartList(Long cus_idx) {
-        return repository.getCartListInfo(cus_idx);
+    public List<Product.CartListInfo> getCartList(Long cusIdx) {
+        return repository.getCartListInfo(cusIdx);
     }
 }

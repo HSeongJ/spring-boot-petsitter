@@ -12,7 +12,7 @@ public interface PetsitterReservationService {
 
     String insertReservation(Petsitter.ReservationRequest reservationInfo);
 
-    List<Petsitter.ReservationResponse> getReservation(Long cus_idx);
+    List<Petsitter.ReservationResponse> getReservation(Long cusIdx);
 
     default PetsitterReservationEntity dtoToReservationEntity(Petsitter.ReservationRequest dto) {
         CustomerEntity customer = CustomerEntity.builder().idx(dto.getCusIdx()).build();

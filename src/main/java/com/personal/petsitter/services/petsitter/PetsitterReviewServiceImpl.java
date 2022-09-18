@@ -16,8 +16,8 @@ public class PetsitterReviewServiceImpl implements PetsitterReviewService{
     private final PetsitterReviewRepository repository;
 
     @Override
-    public Comment.PetsitterResponse getPetsitterReview(Long petsitter_idx, int page) {
-        Page<Comment.Petsitter> results = repository.getReviewList(petsitter_idx, page);
+    public Comment.PetsitterResponse getPetsitterReview(Long petsitterIdx, int page) {
+        Page<Comment.Petsitter> results = repository.getReviewList(petsitterIdx, page);
 
         return new Comment.PetsitterResponse(new PageResultDTO<>(results));
     }
