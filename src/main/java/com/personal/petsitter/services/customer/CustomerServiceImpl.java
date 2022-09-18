@@ -41,11 +41,21 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public String updateAddress(Long customerIdx, String address) {
         try {
-            repository.updateCustomerPhonenumber(customerIdx, address);
+            repository.updateCustomerAddress(customerIdx, address);
 
             return "success";
         } catch (Exception e) {
             return "fail";
         }
+    }
+
+    @Override
+    public Boolean checkExistId(String id) {
+        return repository.checkIdDuplicate(id) > 0 ? false : true;
+    }
+
+    @Override
+    public Boolean checkExistNickname(String nickname) {
+        return repository.checkNicknameDuplicate(nickname) > 0 ? false : true;
     }
 }

@@ -51,9 +51,13 @@ public class CustomerRepositoryTests {
             log.info(Optional.empty());
     }
 
-
     @Test
     public void testUpdatePhonenumber() {
         customerRepository.updateCustomerPhonenumber(1L, "01012344444");
+    }
+
+    @Test
+    public void testCheckIdDuplicate() {
+        log.info(customerRepository.checkIdDuplicate("Testid2"));
     }
 }

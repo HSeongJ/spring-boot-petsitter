@@ -11,6 +11,10 @@ public interface CustomerService {
 
     String updateAddress(Long customerIdx, String address);
 
+    Boolean checkExistId(String id);
+
+    Boolean checkExistNickname(String nickname);
+
     default Customer.Info entityToDTO(CustomerEntity entity) {
         Customer.Info dto = Customer.Info.builder()
                 .customerIdx(entity.getIdx())

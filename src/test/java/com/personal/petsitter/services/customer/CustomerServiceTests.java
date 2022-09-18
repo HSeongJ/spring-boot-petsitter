@@ -27,4 +27,9 @@ public class CustomerServiceTests {
     public void testUpdateCustomerPhonenumber() {
         log.info(service.updatePhonenumber(1L, "01011223344"));
     }
+
+    @Test
+    public void testCheckExistId() {
+        log.info(service.checkExistId("Testid2"));
+    }
 }

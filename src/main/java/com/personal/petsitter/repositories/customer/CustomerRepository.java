@@ -26,4 +26,10 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     @Query("UPDATE CustomerEntity c SET c.address =:address WHERE c.idx =:customerIdx")
     Integer updateCustomerAddress(@Param("customerIdx") Long customerIdx,
                                       @Param("address") String address);
+
+    @Query("SELECT COUNT(c.id) FROM CustomerEntity c WHERE c.id =:id")
+    int checkIdDuplicate(@Param("id")String id);
+
+    @Query("SELECT COUNT(c.id) FROM CustomerEntity c WHERE c.nickname =:nickname")
+    int checkNicknameDuplicate(@Param("nickname")String nickname);
 }
