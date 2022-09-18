@@ -38,8 +38,8 @@ public class BoardServiceImpl implements BoardService {
 
             boardRepository.save(entity);
         } catch (Exception e) {
-            return "입력 실패";
+            return "fail";
         }
-        return "입력 성공";
+        return "success";
     }
 }

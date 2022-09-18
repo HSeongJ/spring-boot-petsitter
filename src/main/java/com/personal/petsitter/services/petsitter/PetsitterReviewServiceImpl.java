@@ -1,6 +1,7 @@
 package com.personal.petsitter.services.petsitter;
 
 import com.personal.petsitter.dto.Comment;
+import com.personal.petsitter.dto.PageResultDTO;
 import com.personal.petsitter.repositories.petsitter.PetsitterReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

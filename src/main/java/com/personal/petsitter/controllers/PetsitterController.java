@@ -42,7 +42,7 @@ public class PetsitterController {
         return reservationService.getReservation(cus_idx);
     }
 
-    @GetMapping("/reivew")
+    @GetMapping("/review")
     public List<Comment.Petsitter> getPetsitterReview(Long petsitter_idx, int page) {
         return petsitterReviewService.getPetsitterReview(petsitter_idx, page);
     }

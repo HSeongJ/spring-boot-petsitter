@@ -40,8 +40,8 @@ public class BoardCommentServiceImpl implements BoardCommentService {
         try {
             boardCommentRepository.save(dtoToEntity(dto));
         } catch (Exception e) {
-            return "입력 실패";
+            return "fail";
         }
-        return "입력 성공";
+        return "success";
     }
 }

@@ -20,7 +20,7 @@ public class BoardCommentRepositoryTests {
 
     @Test
     public void insertDummies() {
-        IntStream.rangeClosed(1, 10).forEach(i -> {
+        IntStream.rangeClosed(1, 1000).forEach(i -> {
             BoardEntity board = BoardEntity.builder()
                     .idx((long)(Math.random() * 100) + 1).build();
             log.info(board.getIdx());

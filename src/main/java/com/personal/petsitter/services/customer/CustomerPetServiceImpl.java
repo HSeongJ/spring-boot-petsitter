@@ -34,9 +34,9 @@ public class CustomerPetServiceImpl implements CustomerPetService{
             PetEntity entity = WriteDtoToEntity(dto);
             repository.save(entity);
 
-            return "추가성공";
+            return "success";
         } catch (Exception e) {
-            return "추가실패";
+            return "fail";
         }
     }
 
@@ -47,9 +47,9 @@ public class CustomerPetServiceImpl implements CustomerPetService{
             PetEntity entity = WriteDtoToEntity(dto);
             repository.save(entity);
 
-            return "변경성공";
+            return "success";
         } catch (Exception e) {
-            return "변경실패";
+            return "fail";
         }
     }
 
@@ -57,9 +57,9 @@ public class CustomerPetServiceImpl implements CustomerPetService{
     public String deletePet(Long petIdx) {
         try {
             repository.deleteById(petIdx);
-            return "삭제성공";
+            return "success";
         } catch (Exception e) {
-            return "삭제실패";
+            return "fail";
         }
     }
 }

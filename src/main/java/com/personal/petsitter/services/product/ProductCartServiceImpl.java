@@ -29,9 +29,9 @@ public class ProductCartServiceImpl implements ProductCartService {
 
             repository.save(entity);
         } catch (Exception e) {
-            return "추가 실패";
+            return "fail";
         }
-        return "추가 완료";
+        return "success";
     }
 
     @Override

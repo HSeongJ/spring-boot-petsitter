@@ -20,7 +20,7 @@ public class Product {
         private String title;
         private String content;
         private String picture;
-        private Double avg_rated;
+        private Double avgRated;
     }
 
     @Builder

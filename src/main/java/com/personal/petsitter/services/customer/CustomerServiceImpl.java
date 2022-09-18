@@ -33,9 +33,9 @@ public class CustomerServiceImpl implements CustomerService {
         try {
             CustomerEntity entity = infoDtoToEntity(dto);
             repository.save(entity);
-            return "변경성공";
+            return "success";
         } catch (Exception e) {
-            return "변경실패";
+            return "fail";
         }
     }
 }

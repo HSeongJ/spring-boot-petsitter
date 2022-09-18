@@ -24,9 +24,9 @@ public class PetsitterReservationServiceImpl implements PetsitterReservationServ
         try {
             repository.save(dtoToReservationEntity(reservationInfo));
         } catch (Exception e) {
-            return "예약 실패";
+            return "fail";
         }
-        return "예약 성공";
+        return "success";
     }
 
     @Transactional
