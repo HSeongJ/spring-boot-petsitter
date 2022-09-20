@@ -1,6 +1,7 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
+import com.personal.petsitter.dto.SignInRequestDTO;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.base.Gender;
 import lombok.extern.log4j.Log4j2;
@@ -19,11 +20,6 @@ public class CustomerServiceTests {
     private CustomerService service;
 
     @Test
-    public void testGetCustomerInfo() {
-        log.info(service.getCustomerInfo(1L));
-    }
-
-    @Test
     public void testUpdateCustomerPhonenumber() {
         log.info(service.updatePhonenumber(1L, "01011223344"));
     }
@@ -31,5 +27,14 @@ public class CustomerServiceTests {
     @Test
     public void testCheckExistId() {
         log.info(service.checkExistId("Testid2"));
+    }
+
+    @Test
+    public void testSignIn() {
+        SignInRequestDTO dto = new SignInRequestDTO();
+        dto.setId("Testid2");
+        dto.setPassword("TestPassword2");
+
+        log.info(service.signIn(dto));
     }
 }

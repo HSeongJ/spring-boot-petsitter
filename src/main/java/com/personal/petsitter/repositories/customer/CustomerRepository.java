@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
     @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
-    Optional<CustomerEntity> findCustomerEntitiesByIdx(Long idx);
+    Optional<CustomerEntity> findCustomerEntityByIdAndPassword(String id, String password);
 
     @Modifying
     @Transactional

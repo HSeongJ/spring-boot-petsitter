@@ -7,9 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.Modifying;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -41,14 +39,14 @@ public class CustomerRepositoryTests {
     }
 
     @Test
-    public void testFindCustomerEntitiesByIdx() {
-        Optional<CustomerEntity> result =
-                customerRepository.findCustomerEntitiesByIdx(1L);
+    public void testSignIn() {
+        Optional<CustomerEntity> customer = customerRepository.findCustomerEntityByIdAndPassword("mockTest", "mockTestpass");
 
-        if(result.isPresent())
-            log.info(result.get());
-        else
-            log.info(Optional.empty());
+        if(customer.isPresent())
+            log.info(customer.get());
+        else {
+            log.info("일치X");
+        }
     }
 
     @Test

@@ -1,10 +1,10 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
+import com.personal.petsitter.dto.SignInRequestDTO;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.repositories.customer.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,15 +16,13 @@ public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository repository;
 
     @Override
-    public Customer.Info getCustomerInfo(Long idx) {
-        Optional<CustomerEntity> result = repository.findCustomerEntitiesByIdx(idx);
+    public Customer.Info signIn(SignInRequestDTO dto) {
+        Optional<CustomerEntity> entity = repository.findCustomerEntityByIdAndPassword(dto.getId(), dto.getPassword());
 
-        if(result.isPresent()) {
-            Customer.Info dto = entityToDTO(result.get());
-            return dto;
-        } else {
+        if(entity.isPresent())
+            return entityToDTO(entity.get());
+        else
             return null;
-        }
     }
 
     @Override

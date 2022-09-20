@@ -1,11 +1,12 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
+import com.personal.petsitter.dto.SignInRequestDTO;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 
 public interface CustomerService {
 
-    Customer.Info getCustomerInfo(Long idx);
+    Customer.Info signIn(SignInRequestDTO dto);
 
     String updatePhonenumber(Long customerIdx, String phonenumber);
 
