@@ -1,12 +1,13 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
-import com.personal.petsitter.dto.SignInRequestDTO;
+import com.personal.petsitter.entities.base.CustomerRole;
+import com.personal.petsitter.entities.base.Gender;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 
 public interface CustomerService {
 
-    Customer.Info signIn(SignInRequestDTO dto);
+    Customer.Info signIn(Customer.SignIn dto);
 
     String updatePhonenumber(Long customerIdx, String phonenumber);
 
@@ -16,11 +17,12 @@ public interface CustomerService {
 
     Boolean checkExistNickname(String nickname);
 
-    default Customer.Info entityToDTO(CustomerEntity entity) {
+    String signUp(Customer.SignUp dto);
+
+    default Customer.Info entityToSignInDTO(CustomerEntity entity) {
         Customer.Info dto = Customer.Info.builder()
                 .customerIdx(entity.getIdx())
                 .id(entity.getId())
-                .password(entity.getPassword())
                 .name(entity.getName())
                 .nickname(entity.getNickname())
                 .gender(entity.getGender())
@@ -29,9 +31,24 @@ public interface CustomerService {
                 .address(entity.getAddress())
                 .picture(entity.getPicture())
                 .roleSet(entity.getRoleSet())
-                .state(entity.getState())
                 .build();
 
         return dto;
+    }
+
+    default CustomerEntity signUpDTOToEntity(Customer.SignUp dto) {
+        CustomerEntity entity = CustomerEntity.builder()
+                .id(dto.getId())
+                .password(dto.getPassword())
+                .name(dto.getName())
+                .nickname(dto.getNickname())
+                .gender(dto.getGender())
+                .email(dto.getEmail())
+                .phonenumber(dto.getPhonenumber())
+                .address(dto.getAddress())
+                .build();
+
+        entity.addCustomerRole(CustomerRole.USER);
+        return entity;
     }
 }

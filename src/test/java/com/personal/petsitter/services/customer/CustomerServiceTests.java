@@ -1,16 +1,10 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
-import com.personal.petsitter.dto.SignInRequestDTO;
-import com.personal.petsitter.entities.base.CustomerRole;
-import com.personal.petsitter.entities.base.Gender;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.Modifying;
-
-import java.util.Collections;
 
 @SpringBootTest
 @Log4j2
@@ -31,7 +25,7 @@ public class CustomerServiceTests {
 
     @Test
     public void testSignIn() {
-        SignInRequestDTO dto = new SignInRequestDTO();
+        Customer.SignIn dto = new Customer.SignIn();
         dto.setId("Testid2");
         dto.setPassword("TestPassword2");
 

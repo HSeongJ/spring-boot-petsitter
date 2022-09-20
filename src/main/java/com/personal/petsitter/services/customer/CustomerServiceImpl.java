@@ -1,7 +1,6 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
-import com.personal.petsitter.dto.SignInRequestDTO;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.repositories.customer.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,13 +15,23 @@ public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository repository;
 
     @Override
-    public Customer.Info signIn(SignInRequestDTO dto) {
+    public Customer.Info signIn(Customer.SignIn dto) {
         Optional<CustomerEntity> entity = repository.findCustomerEntityByIdAndPassword(dto.getId(), dto.getPassword());
 
         if(entity.isPresent())
-            return entityToDTO(entity.get());
+            return entityToSignInDTO(entity.get());
         else
             return null;
+    }
+
+    @Override
+    public String signUp(Customer.SignUp dto) {
+        try {
+            repository.save(signUpDTOToEntity(dto));
+            return "success";
+        } catch (Exception e) {
+            return "fail";
+        }
     }
 
     @Override

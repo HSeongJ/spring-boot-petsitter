@@ -2,7 +2,6 @@ package com.personal.petsitter.controllers;
 
 import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.dto.Pet;
-import com.personal.petsitter.dto.SignInRequestDTO;
 import com.personal.petsitter.services.customer.CustomerPetService;
 import com.personal.petsitter.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +18,14 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping("/signin")
-    public Customer.Info signIn(SignInRequestDTO dto) {
+    public Customer.Info signIn(Customer.SignIn dto) {
         return customerService.signIn(dto);
-    };
+    }
+
+    @PostMapping("/signup")
+    public String signUp(Customer.SignUp dto) {
+        return customerService.signUp(dto);
+    }
 
     @PostMapping("/checkId")
     public Boolean checkExistId(String id) {
