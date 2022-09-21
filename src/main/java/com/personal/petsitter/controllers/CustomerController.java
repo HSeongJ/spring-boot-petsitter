@@ -17,12 +17,12 @@ public class CustomerController {
     private final CustomerPetService customerPetService;
     private final CustomerService customerService;
 
-    @PostMapping("/signin")
+    @PostMapping("/signIn")
     public Customer.Info signIn(Customer.SignIn dto) {
         return customerService.signIn(dto);
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signUp")
     public String signUp(Customer.SignUp dto) {
         return customerService.signUp(dto);
     }
