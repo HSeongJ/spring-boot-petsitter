@@ -30,6 +30,7 @@ public class BoardEntity extends BaseDateEntity {
     private String category;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_idx")
     private CustomerEntity writer;
 
     @Column(length = 500)

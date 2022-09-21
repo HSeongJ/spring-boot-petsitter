@@ -20,7 +20,7 @@ public class PetsitterReservationEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "petres_idx")
+    @Column(name = "reservation_idx")
     private Long idx;
 
     @Column(name = "start_time", nullable = false)
@@ -31,15 +31,17 @@ public class PetsitterReservationEntity extends BaseDateEntity {
 
     private Integer price;
 
-    @Column(name = "pay_state", columnDefinition = "VARCHAR(20) DEFAULT '미결제'")
+    @Column(name = "payment_state", columnDefinition = "VARCHAR(20) DEFAULT '미결제'")
     private String payState;
 
-    @Column(name = "res_state", columnDefinition = "VARCHAR(20) DEFAULT '예약'")
+    @Column(name = "reservation_state", columnDefinition = "VARCHAR(20) DEFAULT '예약'")
     private String resState;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "petsitter_idx")
     private PetsitterEntity petsitter;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_idx")
     private CustomerEntity customer;
 }

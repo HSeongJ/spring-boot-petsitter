@@ -16,15 +16,16 @@ public class BoardCommentEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comm_idx")
+    @Column(name = "commment_idx")
     private Long idx;
 
-    @Column(name = "cus_idx", nullable = false)
+    @Column(name = "customer_idx", nullable = false)
     private Long replyWriter;
 
     @Column(length = 5000, nullable = false)
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_idx")
     private BoardEntity board;
 }

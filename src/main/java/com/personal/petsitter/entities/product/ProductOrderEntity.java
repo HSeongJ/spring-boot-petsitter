@@ -23,7 +23,7 @@ public class ProductOrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "proord_idx")
+    @Column(name = "order_idx")
     private Long idx;
 
     private Integer quantity;
@@ -39,8 +39,10 @@ public class ProductOrderEntity {
     private String deliveryState;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_idx")
     private ProductEntity product;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_idx")
     private CustomerEntity customer;
 }

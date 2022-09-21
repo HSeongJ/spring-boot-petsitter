@@ -35,5 +35,6 @@ public class PetEntity extends BaseRegDateEntity {
     private String picture;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_idx")
     private CustomerEntity customer;
 }
