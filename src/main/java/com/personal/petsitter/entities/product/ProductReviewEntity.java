@@ -18,10 +18,10 @@ public class ProductReviewEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prorev_idx")
+    @Column(name = "review_idx")
     private Long idx;
 
-    @Column(name = "cus_idx", nullable = false)
+    @Column(name = "customer_idx", nullable = false)
     private Long reviewWriter;
 
     @Column(length = 1000)
@@ -34,20 +34,9 @@ public class ProductReviewEntity extends BaseDateEntity {
     private Double rated;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_idx")
     private ProductEntity product;
 
     @Column(length = 500)
-    private String picture1;
-
-    @Column(length = 500)
-    private String picture2;
-
-    @Column(length = 500)
-    private String picture3;
-
-    @Column(length = 500)
-    private String picture4;
-
-    @Column(length = 500)
-    private String picture5;
+    private String picture;
 }

@@ -20,8 +20,10 @@ public class ProductCartEntity {
     private Long idx;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_idx")
     private ProductEntity product;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_idx")
     private CustomerEntity customer;
 }

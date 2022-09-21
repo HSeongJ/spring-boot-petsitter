@@ -22,7 +22,7 @@ public class CustomerEntity extends BaseRegDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cus_idx")
+    @Column(name = "customer_idx")
     private Long idx;
 
     @Column(length = 40, nullable = false)

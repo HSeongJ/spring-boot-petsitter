@@ -18,7 +18,7 @@ public class PetsitterEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sitter_idx")
+    @Column(name = "petsitter_idx")
     private Long idx;
 
     @Column(length = 100, nullable = false)

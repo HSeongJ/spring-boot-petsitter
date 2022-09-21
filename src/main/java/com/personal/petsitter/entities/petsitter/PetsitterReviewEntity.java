@@ -18,10 +18,10 @@ public class PetsitterReviewEntity extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "stterrev_idx")
+    @Column(name = "review_idx")
     private Long idx;
 
-    @Column(name = "cus_idx", nullable = false)
+    @Column(name = "customer_idx", nullable = false)
     private Long reviewWriter;
 
     @Column(length = 1000)
@@ -34,5 +34,6 @@ public class PetsitterReviewEntity extends BaseDateEntity {
     private Double rated;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "petsitter_idx")
     private PetsitterEntity petsitter;
 }
