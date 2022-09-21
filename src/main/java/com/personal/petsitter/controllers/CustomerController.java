@@ -47,8 +47,8 @@ public class CustomerController {
         return customerService.updateAddress(cusIdx, address);
     }
 
-    @GetMapping("/pet/list/{customerIdx}")
-    public List<Pet.ListInfo> getPetList(@PathVariable("customerIdx")Long idx) {
+    @GetMapping("/pet/list")
+    public List<Pet.ListInfo> getPetList(Long idx) {
         return customerPetService.getPetListInfo(idx);
     }
 
