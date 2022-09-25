@@ -36,11 +36,7 @@ public class ProductReviewRepositoryCustomImpl extends QuerydslRepositorySupport
                         productReviewEntity.rated,
                         productReviewEntity.regDate,
                         productReviewEntity.modDate,
-                        productReviewEntity.picture1,
-                        productReviewEntity.picture2,
-                        productReviewEntity.picture3,
-                        productReviewEntity.picture4,
-                        productReviewEntity.picture5
+                        productReviewEntity.picture
                 ))
                 .from(productReviewEntity)
                 .leftJoin(customerEntity).on(productReviewEntity.reviewWriter.eq(customerEntity.idx))

@@ -65,11 +65,7 @@ public class Comment {
         private Double rated;
         private LocalDateTime regDate;
         private LocalDateTime modDate;
-        private String picture1;
-        private String picture2;
-        private String picture3;
-        private String picture4;
-        private String picture5;
+        private String picture;
     }
 
     @AllArgsConstructor

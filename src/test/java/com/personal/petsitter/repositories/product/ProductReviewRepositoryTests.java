@@ -25,11 +25,7 @@ public class ProductReviewRepositoryTests {
                     .content("testContent" + i)
                     .rated(Math.random() * 5)
                     .product(ProductEntity.builder().idx(i % 30 + 1L).build())
-                    .picture1("testPicture1" + i)
-                    .picture2("testPicture2" + i)
-                    .picture3("testPicture3" + i)
-                    .picture4("testPicture4" + i)
-                    .picture5("testPicture5" + i)
+                    .picture("testPicture" + i)
                     .build();
 
             repository.save(entity);
