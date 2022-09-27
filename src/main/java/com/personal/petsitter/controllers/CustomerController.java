@@ -17,26 +17,6 @@ public class CustomerController {
     private final CustomerPetService customerPetService;
     private final CustomerService customerService;
 
-    @PostMapping("/signIn")
-    public Customer.Info signIn(Customer.SignIn dto) {
-        return customerService.signIn(dto);
-    }
-
-    @PostMapping("/signUp")
-    public String signUp(Customer.SignUp dto) {
-        return customerService.signUp(dto);
-    }
-
-    @PostMapping("/checkId")
-    public Boolean checkExistId(String id) {
-        return customerService.checkExistId(id);
-    }
-
-    @PostMapping("/checkNickname")
-    public Boolean checkExistNickname(String nickname) {
-        return customerService.checkExistNickname(nickname);
-    }
-
     @PostMapping("/update/phonenumber")
     public String updatePhonenumber(Long cusIdx, String phonenumber) {
         return customerService.updatePhonenumber(cusIdx, phonenumber);

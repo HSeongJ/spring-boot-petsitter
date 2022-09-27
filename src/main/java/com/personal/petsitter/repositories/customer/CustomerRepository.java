@@ -27,9 +27,17 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     Integer updateCustomerAddress(@Param("customerIdx") Long customerIdx,
                                       @Param("address") String address);
 
+    @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
+    @Query("SELECT c FROM CustomerEntity c WHERE c.id = :id")
+    Optional<CustomerEntity> findById(@Param("id")String id);
+
+    @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
+    @Query("SELECT c FROM CustomerEntity c WHERE c.idx = :idx")
+    Optional<CustomerEntity> findByIdx(@Param("idx")Long idx);
+
     @Query("SELECT COUNT(c.id) FROM CustomerEntity c WHERE c.id =:id")
     int checkIdDuplicate(@Param("id")String id);
 
-    @Query("SELECT COUNT(c.id) FROM CustomerEntity c WHERE c.nickname =:nickname")
+    @Query("SELECT COUNT(c.nickname) FROM CustomerEntity c WHERE c.nickname =:nickname")
     int checkNicknameDuplicate(@Param("nickname")String nickname);
 }

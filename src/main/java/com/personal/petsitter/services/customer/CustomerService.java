@@ -2,8 +2,8 @@ package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.entities.base.CustomerRole;
-import com.personal.petsitter.entities.base.Gender;
 import com.personal.petsitter.entities.customer.CustomerEntity;
+
 
 public interface CustomerService {
 
@@ -36,11 +36,11 @@ public interface CustomerService {
         return dto;
     }
 
-    default CustomerEntity signUpDTOToEntity(Customer.SignUp dto) {
+    default CustomerEntity signUpDTOToEntity(Customer.SignUp dto, String password) {
         CustomerEntity entity = CustomerEntity.builder()
                 .id(dto.getId())
-                .password(dto.getPassword())
                 .name(dto.getName())
+                .password(password)
                 .nickname(dto.getNickname())
                 .gender(dto.getGender())
                 .email(dto.getEmail())

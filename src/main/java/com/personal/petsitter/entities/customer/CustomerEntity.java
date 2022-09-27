@@ -1,5 +1,6 @@
 package com.personal.petsitter.entities.customer;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.personal.petsitter.entities.base.BaseRegDateEntity;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.base.Gender;
@@ -29,6 +30,7 @@ public class CustomerEntity extends BaseRegDateEntity {
     private String id;
 
     @Column(length = 200, nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // 쓰기전용
     private String password;
 
     @Column(length = 100, nullable = false)
