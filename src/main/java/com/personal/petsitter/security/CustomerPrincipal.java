@@ -2,6 +2,7 @@ package com.personal.petsitter.security;
 
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import lombok.Getter;
+import lombok.Setter;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
 public class CustomerPrincipal implements UserDetails {
 
     private static final long serialVersionUID = -3938948583663245575L;
@@ -27,6 +29,8 @@ public class CustomerPrincipal implements UserDetails {
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
+
+    public CustomerPrincipal() {}
 
     public CustomerPrincipal(Long idx, String id, String name, String password, Collection<? extends GrantedAuthority> authorities) {
         this.idx = idx;

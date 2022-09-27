@@ -10,8 +10,8 @@ public interface CustomerPetService {
 
     List<Pet.ListInfo> getPetListInfo(Long cusIdx);
 
-    String addPet(Pet.PetWrite dto);
-    String modifyPetInfo(Pet.PetWrite dto);
+    String addPet(Long idx, Pet.PetWrite dto);
+    String modifyPetInfo(Long idx, Pet.PetWrite dto);
     String deletePet(Long petIdx);
     default Pet.ListInfo entityToDTO(PetEntity entity) {
 
@@ -27,7 +27,7 @@ public interface CustomerPetService {
         return dto;
     }
 
-    default PetEntity WriteDtoToEntity(Pet.PetWrite dto) {
+    default PetEntity WriteDtoToEntity(Long idx, Pet.PetWrite dto) {
         PetEntity entity = PetEntity.builder()
                 .idx(dto.getPetIdx())
                 .family(dto.getFamily())
@@ -35,7 +35,7 @@ public interface CustomerPetService {
                 .gender(dto.getGender())
                 .age(dto.getAge())
                 .picture(dto.getPicture())
-                .customer(CustomerEntity.builder().idx(dto.getCustomerIdx()).build())
+                .customer(CustomerEntity.builder().idx(idx).build())
                 .build();
 
         return entity;

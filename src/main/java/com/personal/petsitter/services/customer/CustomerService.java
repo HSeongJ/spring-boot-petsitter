@@ -3,13 +3,14 @@ package com.personal.petsitter.services.customer;
 import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.customer.CustomerEntity;
+import com.personal.petsitter.security.CustomerPrincipal;
 
 
 public interface CustomerService {
 
-    Customer.Info signIn(Customer.SignIn dto);
+    Customer.Info showInfo(CustomerPrincipal customerPrincipal);
 
-    String updatePhonenumber(Long customerIdx, String phonenumber);
+    String updatePhonenumber(Long idx, String phonenumber);
 
     String updateAddress(Long customerIdx, String address);
 
@@ -19,9 +20,8 @@ public interface CustomerService {
 
     String signUp(Customer.SignUp dto);
 
-    default Customer.Info entityToSignInDTO(CustomerEntity entity) {
+    default Customer.Info entityToInfoDTO(CustomerEntity entity) {
         Customer.Info dto = Customer.Info.builder()
-                .customerIdx(entity.getIdx())
                 .id(entity.getId())
                 .name(entity.getName())
                 .nickname(entity.getNickname())
@@ -30,7 +30,6 @@ public interface CustomerService {
                 .phonenumber(entity.getPhonenumber())
                 .address(entity.getAddress())
                 .picture(entity.getPicture())
-                .roleSet(entity.getRoleSet())
                 .build();
 
         return dto;

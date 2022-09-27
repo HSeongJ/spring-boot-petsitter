@@ -38,7 +38,6 @@ public class Board {
     @Setter
     @Getter
     public static class InsertInfo {
-        private Long idx;
         private String title;
         private String content;
         private String category;

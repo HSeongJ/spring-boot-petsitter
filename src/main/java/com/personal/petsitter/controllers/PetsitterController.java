@@ -3,6 +3,8 @@ package com.personal.petsitter.controllers;
 import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.dto.Petsitter;
+import com.personal.petsitter.security.CurrentMember;
+import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.petsitter.PetsitterReservationService;
 import com.personal.petsitter.services.petsitter.PetsitterReviewService;
 import com.personal.petsitter.services.petsitter.PetsitterService;
@@ -34,13 +36,13 @@ public class PetsitterController {
     }
 
     @PostMapping("/reservation")
-    public String petsitterReservation(Petsitter.ReservationRequest reservationInfo) {
-        return reservationService.insertReservation(reservationInfo);
+    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, Petsitter.ReservationRequest reservationInfo) {
+        return reservationService.insertReservation(customer.getIdx(), reservationInfo);
     }
 
     @GetMapping("/reservation/info")
-    public List<Petsitter.ReservationResponse> getReservationList(Long customerIdx) {
-        return reservationService.getReservation(customerIdx);
+    public List<Petsitter.ReservationResponse> getReservationList(@CurrentMember CustomerPrincipal customer) {
+        return reservationService.getReservation(customer.getIdx());
     }
 
     @GetMapping("/review")

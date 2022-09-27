@@ -29,9 +29,9 @@ public class CustomerPetServiceImpl implements CustomerPetService{
     }
 
     @Override
-    public String addPet(Pet.PetWrite dto) {
+    public String addPet(Long idx, Pet.PetWrite dto) {
         try {
-            PetEntity entity = WriteDtoToEntity(dto);
+            PetEntity entity = WriteDtoToEntity(idx, dto);
             repository.save(entity);
 
             return "success";
@@ -42,9 +42,9 @@ public class CustomerPetServiceImpl implements CustomerPetService{
 
     @Modifying
     @Override
-    public String modifyPetInfo(Pet.PetWrite dto) {
+    public String modifyPetInfo(Long idx, Pet.PetWrite dto) {
         try {
-            PetEntity entity = WriteDtoToEntity(dto);
+            PetEntity entity = WriteDtoToEntity(idx, dto);
             repository.save(entity);
 
             return "success";

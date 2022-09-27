@@ -3,6 +3,8 @@ package com.personal.petsitter.controllers;
 import com.personal.petsitter.dto.Board;
 import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.dto.PageRequestDTO;
+import com.personal.petsitter.security.CurrentMember;
+import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.board.BoardCommentService;
 import com.personal.petsitter.services.board.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +31,8 @@ public class BoardController {
     }
 
     @PostMapping("/insert")
-    public String insertBoard(Board.InsertInfo dto) {
-        return boardService.insertBoard(dto);
+    public String insertBoard(@CurrentMember CustomerPrincipal customer, Board.InsertInfo dto) {
+        return boardService.insertBoard(customer.getIdx(), dto);
     }
 
     @GetMapping("/comment/{boardIdx}")
@@ -39,7 +41,7 @@ public class BoardController {
     }
 
     @PostMapping("/comment/insert")
-    public String insertComment(Comment.BoardWrite dto) {
-        return boardCommentService.insertComment(dto);
+    public String insertComment(@CurrentMember CustomerPrincipal customer, Comment.BoardWrite dto) {
+        return boardCommentService.insertComment(customer.getIdx(), dto);
     }
 }

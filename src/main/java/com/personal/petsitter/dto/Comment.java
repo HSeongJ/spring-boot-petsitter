@@ -25,7 +25,6 @@ public class Comment {
     @Getter
     public static class BoardWrite {
         private Long boardIdx;
-        private Long customerIdx;
         private String content;
     }
 

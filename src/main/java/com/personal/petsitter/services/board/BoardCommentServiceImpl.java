@@ -36,9 +36,9 @@ public class BoardCommentServiceImpl implements BoardCommentService {
         return new Comment.BoardResponse(new ArrayList<>(dtoList));
     }
 
-    public String insertComment(Comment.BoardWrite dto) {
+    public String insertComment(Long idx, Comment.BoardWrite dto) {
         try {
-            boardCommentRepository.save(dtoToEntity(dto));
+            boardCommentRepository.save(dtoToEntity(idx, dto));
         } catch (Exception e) {
             return "fail";
         }

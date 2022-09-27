@@ -7,12 +7,10 @@ import lombok.*;
 import java.util.Set;
 
 public class Customer {
-
     @Builder
     @ToString
     @Getter
     public static class Info {
-        private Long customerIdx;
         private String id;
         private String name;
         private String nickname;
@@ -21,7 +19,6 @@ public class Customer {
         private String phonenumber;
         private String address;
         private String picture;
-        private Set<CustomerRole> roleSet;
     }
 
     @Getter

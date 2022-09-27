@@ -19,13 +19,12 @@ public class PetsitterReservationServiceTests {
     public void testInsertReservation () {
         Petsitter.ReservationRequest dto = Petsitter.ReservationRequest.builder()
                 .petsitterIdx(1L)
-                .customerIdx(1L)
                 .startTime(LocalDateTime.parse("2022-09-14T16:00:00"))
                 .endTime(LocalDateTime.parse("2022-09-14T20:00:00"))
                 .price(100000)
                 .build();
 
-        service.insertReservation(dto);
+        service.insertReservation(1L, dto);
     }
 
     @Test

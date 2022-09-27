@@ -16,10 +16,10 @@ public interface BoardService extends BasePicturesToList {
 
     Board.DetailInfo getDetailInfo(Long idx);
 
-    String insertBoard(Board.InsertInfo dto);
+    String insertBoard(Long idx, Board.InsertInfo dto);
 
-    default BoardEntity dtoToEntity(Board.InsertInfo dto) {
-        CustomerEntity customer = CustomerEntity.builder().idx(dto.getIdx()).build();
+    default BoardEntity dtoToEntity(Long idx, Board.InsertInfo dto) {
+        CustomerEntity customer = CustomerEntity.builder().idx(idx).build();
 
         BoardEntity board = BoardEntity.builder()
                 .title(dto.getTitle())

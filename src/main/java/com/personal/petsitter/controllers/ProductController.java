@@ -3,6 +3,8 @@ package com.personal.petsitter.controllers;
 import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.dto.Product;
+import com.personal.petsitter.security.CurrentMember;
+import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.product.ProductCartService;
 import com.personal.petsitter.services.product.ProductReviewService;
 import com.personal.petsitter.services.product.ProductService;
@@ -37,12 +39,12 @@ public class ProductController {
     }
 
     @PostMapping("/addCart")
-    public String addCart(Long customerIdx, Long productIdx) {
-        return productCartService.addCart(customerIdx, productIdx);
+    public String addCart(@CurrentMember CustomerPrincipal customer, Long productIdx) {
+        return productCartService.addCart(customer.getIdx(), productIdx);
     }
 
     @GetMapping("/cartList")
-    public List<Product.CartListInfo> getCartList(Long cusIdx) {
-        return productCartService.getCartList(cusIdx);
+    public List<Product.CartListInfo> getCartList(@CurrentMember CustomerPrincipal customer) {
+        return productCartService.getCartList(customer.getIdx());
     }
 }

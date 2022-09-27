@@ -12,9 +12,6 @@ import java.util.Optional;
 
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
-    @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
-    Optional<CustomerEntity> findCustomerEntityByIdAndPassword(String id, String password);
-
     @Modifying
     @Transactional
     @Query("UPDATE CustomerEntity c SET c.phonenumber =:phonenumber WHERE c.idx =:customerIdx")

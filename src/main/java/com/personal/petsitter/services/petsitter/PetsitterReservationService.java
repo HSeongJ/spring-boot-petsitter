@@ -9,12 +9,12 @@ import java.util.List;
 
 public interface PetsitterReservationService {
 
-    String insertReservation(Petsitter.ReservationRequest reservationInfo);
+    String insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo);
 
     List<Petsitter.ReservationResponse> getReservation(Long customerIdx);
 
-    default PetsitterReservationEntity dtoToReservationEntity(Petsitter.ReservationRequest dto) {
-        CustomerEntity customer = CustomerEntity.builder().idx(dto.getCustomerIdx()).build();
+    default PetsitterReservationEntity dtoToReservationEntity(Long idx, Petsitter.ReservationRequest dto) {
+        CustomerEntity customer = CustomerEntity.builder().idx(idx).build();
         PetsitterEntity petsitter = PetsitterEntity.builder().idx(dto.getPetsitterIdx()).build();
 
         PetsitterReservationEntity entity = PetsitterReservationEntity.builder()

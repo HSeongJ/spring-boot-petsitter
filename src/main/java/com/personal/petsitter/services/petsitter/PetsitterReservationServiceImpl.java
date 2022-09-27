@@ -21,9 +21,9 @@ public class PetsitterReservationServiceImpl implements PetsitterReservationServ
     private final PetsitterReservationRepository repository;
 
     @Override
-    public String insertReservation(Petsitter.ReservationRequest reservationInfo) {
+    public String insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo) {
         try {
-            repository.save(dtoToReservationEntity(reservationInfo));
+            repository.save(dtoToReservationEntity(idx, reservationInfo));
         } catch (Exception e) {
             return "fail";
         }

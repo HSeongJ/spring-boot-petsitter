@@ -34,7 +34,6 @@ public class BoardServiceTests {
     @Test
     public void testInsertBoard() {
         Board.InsertInfo dto = Board.InsertInfo.builder()
-                .idx(10L)
                 .title("insertTest2")
                 .content("insertTest2")
                 .category("category1")
@@ -45,7 +44,7 @@ public class BoardServiceTests {
                 .picture5("insertTestPicture5")
                 .build();
 
-        log.info(boardService.insertBoard(dto));
+        log.info(boardService.insertBoard(10L, dto));
 
     }
 }

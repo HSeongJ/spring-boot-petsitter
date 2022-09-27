@@ -24,7 +24,6 @@ public class Pet {
     @Getter
     public static class PetWrite {
         private Long petIdx;
-        private Long customerIdx;
         private String family;
         private String name;
         private Gender gender;

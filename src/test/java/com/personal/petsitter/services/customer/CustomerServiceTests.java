@@ -1,6 +1,7 @@
 package com.personal.petsitter.services.customer;
 
 import com.personal.petsitter.dto.Customer;
+import com.personal.petsitter.security.CustomerPrincipal;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class CustomerServiceTests {
 
     @Test
     public void testUpdateCustomerPhonenumber() {
+
         log.info(service.updatePhonenumber(1L, "01011223344"));
     }
 
@@ -23,12 +25,4 @@ public class CustomerServiceTests {
         log.info(service.checkExistId("Testid2"));
     }
 
-    @Test
-    public void testSignIn() {
-        Customer.SignIn dto = new Customer.SignIn();
-        dto.setId("Testid2");
-        dto.setPassword("TestPassword2");
-
-        log.info(service.signIn(dto));
-    }
 }

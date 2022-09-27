@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -18,12 +19,15 @@ public class CustomerRepositoryTests {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Test
     public void insertDummies() {
         IntStream.rangeClosed(1, 20).forEach(i -> {
             CustomerEntity entity = CustomerEntity.builder()
                     .id("Testid" + i)
-                    .password("TestPassword" + i)
+                    .password(passwordEncoder.encode("TestPassword" + i))
                     .name("TestName" + i)
                     .nickname("TestNickname" + i)
                     .gender(i % 2 == 0 ? Gender.FEMAIL : Gender.MAIL)
@@ -36,17 +40,6 @@ public class CustomerRepositoryTests {
 
             customerRepository.save(entity);
         });
-    }
-
-    @Test
-    public void testSignIn() {
-        Optional<CustomerEntity> customer = customerRepository.findCustomerEntityByIdAndPassword("mockTest", "mockTestpass");
-
-        if(customer.isPresent())
-            log.info(customer.get());
-        else {
-            log.info("일치X");
-        }
     }
 
     @Test

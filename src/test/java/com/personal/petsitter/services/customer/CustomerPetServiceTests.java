@@ -22,7 +22,6 @@ public class CustomerPetServiceTests {
     @Test
     public void testAddPetInfo() {
         Pet.PetWrite dto = Pet.PetWrite.builder()
-                .customerIdx(3L)
                 .age(32)
                 .name("AddName")
                 .family("AddFamily1")
@@ -30,12 +29,11 @@ public class CustomerPetServiceTests {
                 .picture("Add")
                 .build();
 
-        log.info(service.addPet(dto));
+        log.info(service.addPet(3L, dto));
     }
     @Test
     public void testModifyPetInfo() {
         Pet.PetWrite dto = Pet.PetWrite.builder()
-                .customerIdx(3L)
                 .petIdx(2L)
                 .age(32)
                 .name("ChangeName")
@@ -44,7 +42,7 @@ public class CustomerPetServiceTests {
                 .picture("Change")
                 .build();
 
-        log.info(service.modifyPetInfo(dto));
+        log.info(service.modifyPetInfo(3L, dto));
     }
 
     @Test

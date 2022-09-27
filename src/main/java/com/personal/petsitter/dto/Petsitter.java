@@ -45,7 +45,6 @@ public class Petsitter {
     @Getter
     public static class ReservationRequest {
         private Long petsitterIdx;
-        private Long customerIdx;
 
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         private LocalDateTime startTime;

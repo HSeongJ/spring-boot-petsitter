@@ -3,6 +3,7 @@ package com.personal.petsitter.services.customer;
 import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.repositories.customer.CustomerRepository;
+import com.personal.petsitter.security.CustomerPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,14 +18,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final PasswordEncoder passwordEncoder;
 
-    @Override
-    public Customer.Info signIn(Customer.SignIn dto) {
-        Optional<CustomerEntity> entity = repository.findCustomerEntityByIdAndPassword(dto.getId(), dto.getPassword());
 
-        if(entity.isPresent())
-            return entityToSignInDTO(entity.get());
-        else
-            return null;
+    @Override
+    public Customer.Info showInfo(CustomerPrincipal customerPrincipal) {
+        Optional<CustomerEntity> entity = repository.findByIdx(customerPrincipal.getIdx());
+
+        Customer.Info dto = entityToInfoDTO(entity.get());
+
+        return dto;
     }
 
     @Override
@@ -38,9 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String updatePhonenumber(Long customerIdx, String phonenumber) {
+    public String updatePhonenumber(Long idx, String phonenumber) {
         try {
-            repository.updateCustomerPhonenumber(customerIdx, phonenumber);
+            repository.updateCustomerPhonenumber(idx, phonenumber);
 
             return "success";
         } catch (Exception e) {

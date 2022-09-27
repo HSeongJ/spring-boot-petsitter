@@ -32,9 +32,9 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public String insertBoard(Board.InsertInfo dto) {
+    public String insertBoard(Long idx, Board.InsertInfo dto) {
         try {
-            BoardEntity entity = dtoToEntity(dto);
+            BoardEntity entity = dtoToEntity(idx, dto);
 
             boardRepository.save(entity);
         } catch (Exception e) {

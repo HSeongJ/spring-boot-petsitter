@@ -22,10 +22,9 @@ public class BoardCommentServiceTests {
     public void testInsertComment() {
         Comment.BoardWrite dto = Comment.BoardWrite.builder()
                 .boardIdx(1L)
-                .customerIdx(1L)
                 .content("LdfasfdjaslfjasjdfkTest")
                 .build();
 
-        boardCommentService.insertComment(dto);
+        boardCommentService.insertComment(1L, dto);
     }
 }
