@@ -36,7 +36,7 @@ public class PetsitterController {
     }
 
     @PostMapping("/reservation")
-    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, Petsitter.ReservationRequest reservationInfo) {
+    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, @RequestBody Petsitter.ReservationRequest reservationInfo) {
         return reservationService.insertReservation(customer.getIdx(), reservationInfo);
     }
 

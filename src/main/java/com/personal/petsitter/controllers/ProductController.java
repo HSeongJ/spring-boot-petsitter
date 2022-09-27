@@ -39,7 +39,7 @@ public class ProductController {
     }
 
     @PostMapping("/addCart")
-    public String addCart(@CurrentMember CustomerPrincipal customer, Long productIdx) {
+    public String addCart(@CurrentMember CustomerPrincipal customer, @RequestBody Long productIdx) {
         return productCartService.addCart(customer.getIdx(), productIdx);
     }
 

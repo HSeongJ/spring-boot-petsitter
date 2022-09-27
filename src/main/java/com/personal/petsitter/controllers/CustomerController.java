@@ -9,10 +9,7 @@ import com.personal.petsitter.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,12 +27,13 @@ public class CustomerController {
     }
 
     @PostMapping("/update/phonenumber")
-    public String updatePhonenumber(@CurrentMember CustomerPrincipal customer, String phonenumber) {
+    public String updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody String phonenumber) {
+        System.out.println(phonenumber);
         return customerService.updatePhonenumber(customer.getIdx(), phonenumber);
     }
 
     @PostMapping("/update/address")
-    public String updateAddress(@CurrentMember CustomerPrincipal customer, String address) {
+    public String updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody String address) {
         return customerService.updateAddress(customer.getIdx(), address);
     }
 
@@ -45,7 +43,7 @@ public class CustomerController {
     }
 
     @PostMapping("/pet/add")
-    public String addPet(@CurrentMember CustomerPrincipal customer, Pet.PetWrite dto) {
+    public String addPet(@CurrentMember CustomerPrincipal customer, @RequestBody Pet.PetWrite dto) {
         return customerPetService.addPet(customer.getIdx(), dto);
     }
 

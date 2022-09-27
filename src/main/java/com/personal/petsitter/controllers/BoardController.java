@@ -31,7 +31,7 @@ public class BoardController {
     }
 
     @PostMapping("/insert")
-    public String insertBoard(@CurrentMember CustomerPrincipal customer, Board.InsertInfo dto) {
+    public String insertBoard(@CurrentMember CustomerPrincipal customer, @RequestBody Board.InsertInfo dto) {
         return boardService.insertBoard(customer.getIdx(), dto);
     }
 
@@ -41,7 +41,7 @@ public class BoardController {
     }
 
     @PostMapping("/comment/insert")
-    public String insertComment(@CurrentMember CustomerPrincipal customer, Comment.BoardWrite dto) {
+    public String insertComment(@CurrentMember CustomerPrincipal customer, @RequestBody Comment.BoardWrite dto) {
         return boardCommentService.insertComment(customer.getIdx(), dto);
     }
 }
