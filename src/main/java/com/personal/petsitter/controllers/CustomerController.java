@@ -7,7 +7,6 @@ import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.customer.CustomerPetService;
 import com.personal.petsitter.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

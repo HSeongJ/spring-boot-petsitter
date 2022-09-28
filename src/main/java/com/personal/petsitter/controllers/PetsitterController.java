@@ -8,7 +8,6 @@ import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.petsitter.PetsitterReservationService;
 import com.personal.petsitter.services.petsitter.PetsitterReviewService;
 import com.personal.petsitter.services.petsitter.PetsitterService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class PetsitterController {
     }
 
     @GetMapping("/info/{petsitterIdx}")
-    public Petsitter.DetailInfo getInfo(@PathVariable("petsitterIdx")Long idx) {
+    public Petsitter.DetailInfo getInfo(@PathVariable("petsitterIdx") Long idx) {
         return petsitterService.getPetsitterInfo(idx);
     }
 
