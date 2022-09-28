@@ -4,6 +4,7 @@ import com.personal.petsitter.entities.petsitter.PetsitterEntity;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Future;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -45,9 +46,11 @@ public class Petsitter {
         private Long petsitterIdx;
 
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+        @Future
         private LocalDateTime startTime;
 
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+        @Future
         private LocalDateTime endTime;
 
         private Integer price;
