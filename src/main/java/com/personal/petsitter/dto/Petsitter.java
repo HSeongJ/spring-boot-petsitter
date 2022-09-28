@@ -44,15 +44,12 @@ public class Petsitter {
     @NoArgsConstructor
     public static class ReservationRequest {
         private Long petsitterIdx;
-
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         @Future
         private LocalDateTime startTime;
-
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         @Future
         private LocalDateTime endTime;
-
         private Integer price;
     }
 
