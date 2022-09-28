@@ -1,9 +1,6 @@
 package com.personal.petsitter.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,8 +18,9 @@ public class Comment {
         private LocalDateTime modDate;
     }
 
-    @Builder
+
     @Getter
+    @NoArgsConstructor
     public static class BoardWrite {
         private Long boardIdx;
         private String content;

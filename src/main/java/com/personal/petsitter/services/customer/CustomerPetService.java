@@ -29,7 +29,6 @@ public interface CustomerPetService {
 
     default PetEntity WriteDtoToEntity(Long idx, Pet.PetWrite dto) {
         PetEntity entity = PetEntity.builder()
-                .idx(dto.getPetIdx())
                 .family(dto.getFamily())
                 .name(dto.getName())
                 .gender(dto.getGender())

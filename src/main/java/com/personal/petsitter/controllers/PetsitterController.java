@@ -10,8 +10,10 @@ import com.personal.petsitter.services.petsitter.PetsitterReviewService;
 import com.personal.petsitter.services.petsitter.PetsitterService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -35,8 +37,8 @@ public class PetsitterController {
         return petsitterService.getPetsitterInfo(idx);
     }
 
-    @PostMapping("/reservation")
-    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, @RequestBody Petsitter.ReservationRequest reservationInfo) {
+    @PostMapping(value = "/reservation", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Petsitter.ReservationRequest reservationInfo) {
         return reservationService.insertReservation(customer.getIdx(), reservationInfo);
     }
 

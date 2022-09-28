@@ -8,9 +8,11 @@ import com.personal.petsitter.services.customer.CustomerPetService;
 import com.personal.petsitter.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,13 +28,13 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.showInfo(customer), HttpStatus.OK);
     }
 
-    @PostMapping("/update/phonenumber")
+    @PutMapping("/update/phonenumber")
     public String updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody String phonenumber) {
         System.out.println(phonenumber);
         return customerService.updatePhonenumber(customer.getIdx(), phonenumber);
     }
 
-    @PostMapping("/update/address")
+    @PutMapping("/update/address")
     public String updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody String address) {
         return customerService.updateAddress(customer.getIdx(), address);
     }
@@ -42,17 +44,18 @@ public class CustomerController {
         return customerPetService.getPetListInfo(customer.getIdx());
     }
 
-    @PostMapping("/pet/add")
-    public String addPet(@CurrentMember CustomerPrincipal customer, @RequestBody Pet.PetWrite dto) {
+    @PostMapping(value = "/pet/add", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String addPet(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
+        System.out.println(dto.getName());
         return customerPetService.addPet(customer.getIdx(), dto);
     }
 
-    @PostMapping("/pet/update")
-    public String modifyPetInfo(@CurrentMember CustomerPrincipal customer, Pet.PetWrite dto) {
+    @PutMapping(value = "/pet/update", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String modifyPetInfo(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
         return customerPetService.modifyPetInfo(customer.getIdx(), dto);
     }
 
-    @PostMapping("/pet/delete")
+    @DeleteMapping("/pet/delete")
     public String deletePet(Long petIdx) {
         return customerPetService.deletePet(petIdx);
     }

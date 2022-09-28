@@ -34,9 +34,9 @@ public class Board {
         private List<String> pictures;
     }
 
-    @Builder
     @Setter
     @Getter
+    @NoArgsConstructor
     public static class InsertInfo {
         private String title;
         private String content;

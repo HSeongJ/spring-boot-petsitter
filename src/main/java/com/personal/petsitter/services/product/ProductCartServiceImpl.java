@@ -19,6 +19,7 @@ public class ProductCartServiceImpl implements ProductCartService {
     @Override
     public String addCart(Long customerIdx, Long productIdx) {
         try {
+            System.out.println(customerIdx + " " + productIdx);
             CustomerEntity customer = CustomerEntity.builder().idx(customerIdx).build();
             ProductEntity product = ProductEntity.builder().idx(productIdx).build();
 

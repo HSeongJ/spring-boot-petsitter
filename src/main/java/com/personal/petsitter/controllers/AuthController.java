@@ -6,6 +6,7 @@ import com.personal.petsitter.security.JwtTokenProvider;
 import com.personal.petsitter.services.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,7 +38,7 @@ public class AuthController {
         return new ResponseEntity<>(new JwtAuthenticationResponseDTO(jwt), HttpStatus.OK);
     }
 
-    @PostMapping("/signUp")
+    @PostMapping(value = "/signUp", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String signUp(@Valid @RequestBody Customer.SignUp dto) {
         return customerService.signUp(dto);
     }

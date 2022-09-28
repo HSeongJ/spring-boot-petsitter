@@ -30,6 +30,7 @@ public class Customer {
 
     @Getter
     @Setter
+    @NoArgsConstructor
     public static class SignUp {
         private String id;
         private String password;

@@ -1,10 +1,7 @@
 package com.personal.petsitter.dto;
 
 import com.personal.petsitter.entities.petsitter.PetsitterEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
@@ -41,8 +38,9 @@ public class Petsitter {
         private List<String> pictures;
     }
 
-    @Builder
+
     @Getter
+    @NoArgsConstructor
     public static class ReservationRequest {
         private Long petsitterIdx;
 

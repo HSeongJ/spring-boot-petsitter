@@ -1,10 +1,7 @@
 package com.personal.petsitter.dto;
 
 import com.personal.petsitter.entities.base.Gender;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 public class Pet {
 
@@ -20,10 +17,10 @@ public class Pet {
         private String picture;
     }
 
-    @Builder
+
     @Getter
+    @NoArgsConstructor
     public static class PetWrite {
-        private Long petIdx;
         private String family;
         private String name;
         private Gender gender;

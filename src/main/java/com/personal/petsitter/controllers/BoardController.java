@@ -8,8 +8,10 @@ import com.personal.petsitter.security.CustomerPrincipal;
 import com.personal.petsitter.services.board.BoardCommentService;
 import com.personal.petsitter.services.board.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,18 +32,18 @@ public class BoardController {
         return boardService.getDetailInfo(idx);
     }
 
-    @PostMapping("/insert")
-    public String insertBoard(@CurrentMember CustomerPrincipal customer, @RequestBody Board.InsertInfo dto) {
+    @PostMapping(value = "/insert", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String insertBoard(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Board.InsertInfo dto) {
         return boardService.insertBoard(customer.getIdx(), dto);
     }
 
-    @GetMapping("/comment/{boardIdx}")
+    @GetMapping("/{boardIdx}/comment")
     public Comment.BoardResponse getCommentList(@PathVariable("boardIdx")Long idx) {
         return boardCommentService.getCommentList(idx);
     }
 
-    @PostMapping("/comment/insert")
-    public String insertComment(@CurrentMember CustomerPrincipal customer, @RequestBody Comment.BoardWrite dto) {
+    @PostMapping(value = "/comment/insert", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public String insertComment(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Comment.BoardWrite dto) {
         return boardCommentService.insertComment(customer.getIdx(), dto);
     }
 }

@@ -9,8 +9,10 @@ import com.personal.petsitter.services.product.ProductCartService;
 import com.personal.petsitter.services.product.ProductReviewService;
 import com.personal.petsitter.services.product.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -38,8 +40,9 @@ public class ProductController {
         return productReviewService.getReview(productIdx, page);
     }
 
-    @PostMapping("/addCart")
-    public String addCart(@CurrentMember CustomerPrincipal customer, @RequestBody Long productIdx) {
+    @PostMapping(value = "/addCart/{productIdx}")
+    public String addCart(@CurrentMember CustomerPrincipal customer, @PathVariable("productIdx") Long productIdx) {
+        System.out.println(productIdx);
         return productCartService.addCart(customer.getIdx(), productIdx);
     }
 
