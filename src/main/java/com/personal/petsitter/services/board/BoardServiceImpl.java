@@ -5,9 +5,12 @@ import com.personal.petsitter.dto.PageRequestDTO;
 import com.personal.petsitter.dto.PageResultDTO;
 import com.personal.petsitter.entities.board.BoardEntity;
 import com.personal.petsitter.repositories.board.BoardRepository;
+import com.personal.petsitter.util.AppConstants;
 import com.querydsl.core.Tuple;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,14 +35,14 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public String insertBoard(Long idx, Board.InsertInfo dto) {
+    public ResponseEntity<String> insertBoard(Long idx, Board.InsertInfo dto) {
         try {
             BoardEntity entity = dtoToEntity(idx, dto);
 
             boardRepository.save(entity);
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return "success";
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 }

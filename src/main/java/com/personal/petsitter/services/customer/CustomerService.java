@@ -4,21 +4,22 @@ import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.security.CustomerPrincipal;
+import org.springframework.http.ResponseEntity;
 
 
 public interface CustomerService {
 
     Customer.Info showInfo(CustomerPrincipal customerPrincipal);
 
-    String updatePhonenumber(Long idx, String phonenumber);
+    ResponseEntity<String> updatePhonenumber(Long idx, String phonenumber);
 
-    String updateAddress(Long customerIdx, String address);
+    ResponseEntity<String> updateAddress(Long customerIdx, String address);
 
     Boolean checkExistId(String id);
 
     Boolean checkExistNickname(String nickname);
 
-    String signUp(Customer.SignUp dto);
+    ResponseEntity<String> signUp(Customer.SignUp dto);
 
     default Customer.Info entityToInfoDTO(CustomerEntity entity) {
         Customer.Info dto = Customer.Info.builder()

@@ -9,6 +9,7 @@ import com.personal.petsitter.services.board.BoardCommentService;
 import com.personal.petsitter.services.board.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,7 +34,7 @@ public class BoardController {
     }
 
     @PostMapping(value = "/insert", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String insertBoard(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Board.InsertInfo dto) {
+    public ResponseEntity<String> insertBoard(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Board.InsertInfo dto) {
         return boardService.insertBoard(customer.getIdx(), dto);
     }
 
@@ -43,7 +44,7 @@ public class BoardController {
     }
 
     @PostMapping(value = "/comment/insert", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String insertComment(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Comment.BoardWrite dto) {
+    public ResponseEntity<String> insertComment(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Comment.BoardWrite dto) {
         return boardCommentService.insertComment(customer.getIdx(), dto);
     }
 }

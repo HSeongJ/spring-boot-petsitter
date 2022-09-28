@@ -2,7 +2,10 @@ package com.personal.petsitter.services.board;
 
 import com.personal.petsitter.dto.Comment;
 import com.personal.petsitter.repositories.board.BoardCommentRepository;
+import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -36,12 +39,12 @@ public class BoardCommentServiceImpl implements BoardCommentService {
         return new Comment.BoardResponse(new ArrayList<>(dtoList));
     }
 
-    public String insertComment(Long idx, Comment.BoardWrite dto) {
+    public ResponseEntity<String> insertComment(Long idx, Comment.BoardWrite dto) {
         try {
             boardCommentRepository.save(dtoToEntity(idx, dto));
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return "success";
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 }

@@ -4,8 +4,11 @@ import com.personal.petsitter.dto.Pet;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.customer.PetEntity;
 import com.personal.petsitter.repositories.customer.CustomerPetRepository;
+import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,37 +32,35 @@ public class CustomerPetServiceImpl implements CustomerPetService{
     }
 
     @Override
-    public String addPet(Long idx, Pet.PetWrite dto) {
+    public ResponseEntity<String> addPet(Long idx, Pet.PetWrite dto) {
         try {
             PetEntity entity = WriteDtoToEntity(idx, dto);
             repository.save(entity);
-
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Modifying
     @Override
-    public String modifyPetInfo(Long idx, Pet.PetWrite dto) {
+    public ResponseEntity<String> modifyPetInfo(Long idx, Pet.PetWrite dto) {
         try {
             PetEntity entity = WriteDtoToEntity(idx, dto);
             repository.save(entity);
-
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Override
-    public String deletePet(Long petIdx) {
+    public ResponseEntity<String> deletePet(Long petIdx) {
         try {
             repository.deleteById(petIdx);
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 }

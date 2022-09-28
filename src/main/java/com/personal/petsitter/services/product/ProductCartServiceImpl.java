@@ -5,7 +5,10 @@ import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.product.ProductCartEntity;
 import com.personal.petsitter.entities.product.ProductEntity;
 import com.personal.petsitter.repositories.product.ProductCartRepository;
+import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +20,7 @@ public class ProductCartServiceImpl implements ProductCartService {
     private final ProductCartRepository repository;
 
     @Override
-    public String addCart(Long customerIdx, Long productIdx) {
+    public ResponseEntity<String> addCart(Long customerIdx, Long productIdx) {
         try {
             System.out.println(customerIdx + " " + productIdx);
             CustomerEntity customer = CustomerEntity.builder().idx(customerIdx).build();
@@ -30,9 +33,9 @@ public class ProductCartServiceImpl implements ProductCartService {
 
             repository.save(entity);
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return "success";
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Override

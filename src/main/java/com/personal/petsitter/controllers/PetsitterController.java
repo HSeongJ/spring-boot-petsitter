@@ -11,6 +11,7 @@ import com.personal.petsitter.services.petsitter.PetsitterService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -38,7 +39,7 @@ public class PetsitterController {
     }
 
     @PostMapping(value = "/reservation", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String petsitterReservation(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Petsitter.ReservationRequest reservationInfo) {
+    public ResponseEntity<String> petsitterReservation(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Petsitter.ReservationRequest reservationInfo) {
         return reservationService.insertReservation(customer.getIdx(), reservationInfo);
     }
 

@@ -4,12 +4,13 @@ import com.personal.petsitter.dto.Petsitter;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterReservationEntity;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface PetsitterReservationService {
 
-    String insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo);
+    ResponseEntity<String> insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo);
 
     List<Petsitter.ReservationResponse> getReservation(Long customerIdx);
 

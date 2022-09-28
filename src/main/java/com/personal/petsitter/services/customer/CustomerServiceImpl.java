@@ -4,7 +4,10 @@ import com.personal.petsitter.dto.Customer;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.repositories.customer.CustomerRepository;
 import com.personal.petsitter.security.CustomerPrincipal;
+import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,35 +32,33 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String signUp(Customer.SignUp dto) {
+    public ResponseEntity<String> signUp(Customer.SignUp dto) {
         try {
             repository.save(signUpDTOToEntity(dto, passwordEncoder.encode(dto.getPassword())));
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Override
-    public String updatePhonenumber(Long idx, String phonenumber) {
+    public ResponseEntity<String> updatePhonenumber(Long idx, String phonenumber) {
         try {
             repository.updateCustomerPhonenumber(idx, phonenumber);
-
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Override
-    public String updateAddress(Long customerIdx, String address) {
+    public ResponseEntity<String> updateAddress(Long customerIdx, String address) {
         try {
             repository.updateCustomerAddress(customerIdx, address);
-
-            return "success";
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Override

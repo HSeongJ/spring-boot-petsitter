@@ -24,18 +24,18 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping("/info")
-    public ResponseEntity<Customer.Info> getCustomerInfo(@CurrentMember CustomerPrincipal customer) {
-        return new ResponseEntity<>(customerService.showInfo(customer), HttpStatus.OK);
+    public Customer.Info getCustomerInfo(@CurrentMember CustomerPrincipal customer) {
+        return customerService.showInfo(customer);
     }
 
     @PutMapping("/update/phonenumber")
-    public String updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody String phonenumber) {
+    public ResponseEntity<String> updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody String phonenumber) {
         System.out.println(phonenumber);
         return customerService.updatePhonenumber(customer.getIdx(), phonenumber);
     }
 
     @PutMapping("/update/address")
-    public String updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody String address) {
+    public ResponseEntity<String> updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody String address) {
         return customerService.updateAddress(customer.getIdx(), address);
     }
 
@@ -45,18 +45,18 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/pet/add", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String addPet(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
+    public ResponseEntity<String> addPet(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
         System.out.println(dto.getName());
         return customerPetService.addPet(customer.getIdx(), dto);
     }
 
     @PutMapping(value = "/pet/update", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String modifyPetInfo(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
+    public ResponseEntity<String> modifyPetInfo(@CurrentMember CustomerPrincipal customer, @Valid @RequestBody Pet.PetWrite dto) {
         return customerPetService.modifyPetInfo(customer.getIdx(), dto);
     }
 
     @DeleteMapping("/pet/delete")
-    public String deletePet(Long petIdx) {
+    public ResponseEntity<String> deletePet(Long petIdx) {
         return customerPetService.deletePet(petIdx);
     }
 }

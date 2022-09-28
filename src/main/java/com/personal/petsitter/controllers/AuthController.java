@@ -39,7 +39,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/signUp", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public String signUp(@Valid @RequestBody Customer.SignUp dto) {
+    public ResponseEntity<String> signUp(@Valid @RequestBody Customer.SignUp dto) {
         return customerService.signUp(dto);
     }
 

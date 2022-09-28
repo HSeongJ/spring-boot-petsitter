@@ -3,6 +3,7 @@ package com.personal.petsitter.services.customer;
 import com.personal.petsitter.dto.Pet;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.customer.PetEntity;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -10,9 +11,9 @@ public interface CustomerPetService {
 
     List<Pet.ListInfo> getPetListInfo(Long cusIdx);
 
-    String addPet(Long idx, Pet.PetWrite dto);
-    String modifyPetInfo(Long idx, Pet.PetWrite dto);
-    String deletePet(Long petIdx);
+    ResponseEntity<String> addPet(Long idx, Pet.PetWrite dto);
+    ResponseEntity<String> modifyPetInfo(Long idx, Pet.PetWrite dto);
+    ResponseEntity<String> deletePet(Long petIdx);
     default Pet.ListInfo entityToDTO(PetEntity entity) {
 
         Pet.ListInfo dto = Pet.ListInfo.builder()

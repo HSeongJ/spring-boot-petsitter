@@ -6,6 +6,7 @@ import com.personal.petsitter.entities.board.BoardEntity;
 import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.services.base.BasePicturesToList;
 import com.querydsl.core.Tuple;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +17,7 @@ public interface BoardService extends BasePicturesToList {
 
     Board.DetailInfo getDetailInfo(Long idx);
 
-    String insertBoard(Long idx, Board.InsertInfo dto);
+    ResponseEntity<String> insertBoard(Long idx, Board.InsertInfo dto);
 
     default BoardEntity dtoToEntity(Long idx, Board.InsertInfo dto) {
         CustomerEntity customer = CustomerEntity.builder().idx(idx).build();

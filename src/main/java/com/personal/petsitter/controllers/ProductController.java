@@ -10,6 +10,7 @@ import com.personal.petsitter.services.product.ProductReviewService;
 import com.personal.petsitter.services.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -41,8 +42,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/addCart/{productIdx}")
-    public String addCart(@CurrentMember CustomerPrincipal customer, @PathVariable("productIdx") Long productIdx) {
-        System.out.println(productIdx);
+    public ResponseEntity<String> addCart(@CurrentMember CustomerPrincipal customer, @PathVariable("productIdx") Long productIdx) {
         return productCartService.addCart(customer.getIdx(), productIdx);
     }
 

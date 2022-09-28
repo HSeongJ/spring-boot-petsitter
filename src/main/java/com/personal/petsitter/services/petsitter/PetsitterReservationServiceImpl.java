@@ -5,8 +5,11 @@ import com.personal.petsitter.entities.customer.CustomerEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterReservationEntity;
 import com.personal.petsitter.repositories.petsitter.PetsitterReservationRepository;
+import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.tool.schema.internal.exec.ScriptTargetOutputToUrl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,13 +24,13 @@ public class PetsitterReservationServiceImpl implements PetsitterReservationServ
     private final PetsitterReservationRepository repository;
 
     @Override
-    public String insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo) {
+    public ResponseEntity<String> insertReservation(Long idx, Petsitter.ReservationRequest reservationInfo) {
         try {
             repository.save(dtoToReservationEntity(idx, reservationInfo));
         } catch (Exception e) {
-            return "fail";
+            return new ResponseEntity<>(AppConstants.RESPONSE_FAIL, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return "success";
+        return new ResponseEntity<>(AppConstants.RESPONSE_SUCCESS, HttpStatus.OK);
     }
 
     @Transactional
