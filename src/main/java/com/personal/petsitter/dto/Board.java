@@ -2,6 +2,8 @@ package com.personal.petsitter.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,7 +40,10 @@ public class Board {
     @Getter
     @NoArgsConstructor
     public static class InsertInfo {
+        @NotBlank(message = "Title can't null")
+        @Size(max=500, message = "The maximum length of the title is 500 characters.")
         private String title;
+        @Size(max=1000, message = "The maximum length of the content is 1000 characters.")
         private String content;
         private String category;
         private String picture1;

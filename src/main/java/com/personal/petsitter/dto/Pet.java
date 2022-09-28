@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.validation.constraints.*;
+
 public class Pet {
 
     @Builder
@@ -25,8 +27,10 @@ public class Pet {
     @NoArgsConstructor
     public static class PetWrite {
         private String family;
+        @Pattern(regexp = "^[a-zA-Z가-힣]{2,15}$")
         private String name;
         private Gender gender;
+        @Positive
         private int age;
         private String picture;
     }

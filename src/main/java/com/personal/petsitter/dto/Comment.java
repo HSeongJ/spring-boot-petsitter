@@ -2,6 +2,8 @@ package com.personal.petsitter.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,6 +25,8 @@ public class Comment {
     @NoArgsConstructor
     public static class BoardWrite {
         private Long boardIdx;
+        @NotBlank(message = "Content can't null")
+        @Size(max = 2000, message = "The maximum length of the content is 2000 characters.")
         private String content;
     }
 
