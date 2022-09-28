@@ -10,19 +10,19 @@ public interface BasePicturesToList {
 
         List<String> list = new ArrayList<>();
 
-        if(picture1 != null) {
+        if (picture1 != null) {
             list.add(picture1);
         }
-        if(picture2 != null) {
+        if (picture2 != null) {
             list.add(picture2);
         }
-        if(picture3 != null) {
+        if (picture3 != null) {
             list.add(picture3);
         }
-        if(picture4 != null) {
+        if (picture4 != null) {
             list.add(picture4);
         }
-        if(picture5 != null) {
+        if (picture5 != null) {
             list.add(picture5);
         }
 

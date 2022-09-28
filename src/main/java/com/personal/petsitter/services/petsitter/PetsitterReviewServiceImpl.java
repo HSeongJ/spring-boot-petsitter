@@ -7,11 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
-public class PetsitterReviewServiceImpl implements PetsitterReviewService{
+public class PetsitterReviewServiceImpl implements PetsitterReviewService {
 
     private final PetsitterReviewRepository repository;
 

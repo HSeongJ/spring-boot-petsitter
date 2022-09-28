@@ -8,8 +8,8 @@ import com.personal.petsitter.services.base.BasePicturesToList;
 public interface PetsitterService extends BasePicturesToList {
 
     Petsitter.DetailInfo getPetsitterInfo(Long idx);
-    Petsitter.ListResponse getPetsitterList(PageRequestDTO pageRequestDTO);
 
+    Petsitter.ListResponse getPetsitterList(PageRequestDTO pageRequestDTO);
 
 
     default Petsitter.ListInfo entityToListDTO(PetsitterEntity entity) {
@@ -22,11 +22,11 @@ public interface PetsitterService extends BasePicturesToList {
                 .category(entity.getCategory())
                 .avgRated(entity.getAvgRated())
                 .pictures(picturesToList(entity.getPicture1(), entity.getPicture2(), entity.getPicture3(),
-                                         entity.getPicture4(), entity.getPicture5()))
+                        entity.getPicture4(), entity.getPicture5()))
                 .build();
 
         return dto;
-     }
+    }
 
     default Petsitter.DetailInfo entityToDetailDTO(PetsitterEntity entity) {
         Petsitter.DetailInfo dto = Petsitter.DetailInfo.builder()

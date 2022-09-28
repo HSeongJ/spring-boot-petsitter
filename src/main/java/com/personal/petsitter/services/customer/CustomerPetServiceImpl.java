@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerPetServiceImpl implements CustomerPetService{
+public class CustomerPetServiceImpl implements CustomerPetService {
 
     private final CustomerPetRepository repository;
 

@@ -35,7 +35,7 @@ public class ProductRepositoryCustomImpl extends QuerydslRepositorySupport imple
                         productEntity.content,
                         productEntity.picture1,
                         productEntity.avgRated
-                        ))
+                ))
                 .from(productEntity)
                 .where(eqCategory(dto.getCategory()),
                         eqFamily(dto.getFamily()),

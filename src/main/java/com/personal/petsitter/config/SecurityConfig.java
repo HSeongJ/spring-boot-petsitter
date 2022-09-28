@@ -41,8 +41,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         //JWT인증에 대한 엔트리포인트
         http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()  //JWT
-                                                                                                                    //예외처리
-                                                                                                                    //설정
+                //예외처리
+                //설정
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and() //스프링 시큐리티 X, JWT O
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/**").permitAll() //POST : /auth/** 만 요청 허용

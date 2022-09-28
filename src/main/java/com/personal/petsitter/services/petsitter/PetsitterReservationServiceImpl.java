@@ -2,19 +2,16 @@ package com.personal.petsitter.services.petsitter;
 
 import com.personal.petsitter.dto.Petsitter;
 import com.personal.petsitter.entities.customer.CustomerEntity;
-import com.personal.petsitter.entities.petsitter.PetsitterEntity;
 import com.personal.petsitter.entities.petsitter.PetsitterReservationEntity;
 import com.personal.petsitter.repositories.petsitter.PetsitterReservationRepository;
 import com.personal.petsitter.util.AppConstants;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.tool.schema.internal.exec.ScriptTargetOutputToUrl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service

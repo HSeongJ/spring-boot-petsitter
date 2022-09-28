@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository reposiroty;
+
     @Override
     public Product.ListResponse getList(PageRequestDTO dto) {
         Page<Product.ListInfo> results = reposiroty.getList(dto);

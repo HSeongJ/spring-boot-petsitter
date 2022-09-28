@@ -19,7 +19,7 @@ public class PetsitterServiceImpl implements PetsitterService {
 
     @Override
     public Petsitter.ListResponse getPetsitterList(PageRequestDTO pageRequestDTO) {
-        Page<PetsitterEntity> results =  petsitterRepository.getList(pageRequestDTO);
+        Page<PetsitterEntity> results = petsitterRepository.getList(pageRequestDTO);
 
         Function<PetsitterEntity, Petsitter.ListInfo> fn = (entity -> entityToListDTO(entity));
 

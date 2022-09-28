@@ -30,7 +30,8 @@ public class CustomerPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public CustomerPrincipal() {}
+    public CustomerPrincipal() {
+    }
 
     public CustomerPrincipal(Long idx, String id, String name, String password, Collection<? extends GrantedAuthority> authorities) {
         this.idx = idx;
@@ -38,7 +39,7 @@ public class CustomerPrincipal implements UserDetails {
         this.name = name;
         this.password = password;
 
-        if(authorities == null) {
+        if (authorities == null) {
             this.authorities = null;
         } else {
             this.authorities = new ArrayList<>(authorities);

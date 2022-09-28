@@ -1,7 +1,6 @@
 package com.personal.petsitter.repositories.product;
 
 import com.personal.petsitter.dto.Product;
-import com.personal.petsitter.entities.product.ProductCartEntity;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

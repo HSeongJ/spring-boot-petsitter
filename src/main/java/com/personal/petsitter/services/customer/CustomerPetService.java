@@ -12,8 +12,11 @@ public interface CustomerPetService {
     List<Pet.ListInfo> getPetListInfo(Long cusIdx);
 
     ResponseEntity<String> addPet(Long idx, Pet.PetWrite dto);
+
     ResponseEntity<String> modifyPetInfo(Long idx, Pet.PetWrite dto);
+
     ResponseEntity<String> deletePet(Long petIdx);
+
     default Pet.ListInfo entityToDTO(PetEntity entity) {
 
         Pet.ListInfo dto = Pet.ListInfo.builder()

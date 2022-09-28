@@ -1,7 +1,10 @@
 package com.personal.petsitter.dto;
 
 import com.personal.petsitter.entities.hospital.HospitalEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 

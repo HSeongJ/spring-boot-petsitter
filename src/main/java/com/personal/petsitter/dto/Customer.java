@@ -1,10 +1,7 @@
 package com.personal.petsitter.dto;
 
-import com.personal.petsitter.entities.base.CustomerRole;
 import com.personal.petsitter.entities.base.Gender;
 import lombok.*;
-
-import java.util.Set;
 
 public class Customer {
     @Builder

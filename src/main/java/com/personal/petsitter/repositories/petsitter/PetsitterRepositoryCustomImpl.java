@@ -20,6 +20,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 public class PetsitterRepositoryCustomImpl extends QuerydslRepositorySupport implements PetsitterRepositoryCustom {
 
     private final JPAQueryFactory jpaQueryFactory;
+
     public PetsitterRepositoryCustomImpl(JPAQueryFactory jpaQueryFactory) {
         super(PetsitterEntity.class);
         this.jpaQueryFactory = jpaQueryFactory;
@@ -36,7 +37,7 @@ public class PetsitterRepositoryCustomImpl extends QuerydslRepositorySupport imp
 
         List<PetsitterEntity> results = getQuerydsl()
                 .applyPagination(dto.getPageable(Sort.by("idx").descending()),
-                               query).fetch();
+                        query).fetch();
 
         return new PageImpl<>(results, dto.getPageable(Sort.by("idx").descending()), totalCount);
     }

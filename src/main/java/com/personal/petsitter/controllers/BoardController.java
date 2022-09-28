@@ -28,7 +28,7 @@ public class BoardController {
     }
 
     @GetMapping("/{boardIdx}")
-    public Board.DetailInfo getDetailInfo(@PathVariable("boardIdx")Long idx) {
+    public Board.DetailInfo getDetailInfo(@PathVariable("boardIdx") Long idx) {
         return boardService.getDetailInfo(idx);
     }
 
@@ -38,7 +38,7 @@ public class BoardController {
     }
 
     @GetMapping("/{boardIdx}/comment")
-    public Comment.BoardResponse getCommentList(@PathVariable("boardIdx")Long idx) {
+    public Comment.BoardResponse getCommentList(@PathVariable("boardIdx") Long idx) {
         return boardCommentService.getCommentList(idx);
     }
 

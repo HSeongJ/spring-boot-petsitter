@@ -22,19 +22,19 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     @Transactional
     @Query("UPDATE CustomerEntity c SET c.address =:address WHERE c.idx =:customerIdx")
     Integer updateCustomerAddress(@Param("customerIdx") Long customerIdx,
-                                      @Param("address") String address);
+                                  @Param("address") String address);
 
     @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT c FROM CustomerEntity c WHERE c.id = :id")
-    Optional<CustomerEntity> findById(@Param("id")String id);
+    Optional<CustomerEntity> findById(@Param("id") String id);
 
     @EntityGraph(attributePaths = {"roleSet"}, type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT c FROM CustomerEntity c WHERE c.idx = :idx")
-    Optional<CustomerEntity> findByIdx(@Param("idx")Long idx);
+    Optional<CustomerEntity> findByIdx(@Param("idx") Long idx);
 
     @Query("SELECT COUNT(c.id) FROM CustomerEntity c WHERE c.id =:id")
-    int checkIdDuplicate(@Param("id")String id);
+    int checkIdDuplicate(@Param("id") String id);
 
     @Query("SELECT COUNT(c.nickname) FROM CustomerEntity c WHERE c.nickname =:nickname")
-    int checkNicknameDuplicate(@Param("nickname")String nickname);
+    int checkNicknameDuplicate(@Param("nickname") String nickname);
 }

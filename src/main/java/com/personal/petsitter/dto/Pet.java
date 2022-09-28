@@ -1,7 +1,10 @@
 package com.personal.petsitter.dto;
 
 import com.personal.petsitter.entities.base.Gender;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 public class Pet {
 

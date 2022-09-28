@@ -22,7 +22,7 @@ public class HospitalController {
     }
 
     @GetMapping("/info/{hospitalIdx}")
-    public Hospital.Info getInfo(@PathVariable("hospitalIdx")Long idx) {
+    public Hospital.Info getInfo(@PathVariable("hospitalIdx") Long idx) {
         return hospitalService.getHospitalInfo(idx);
     }
 }

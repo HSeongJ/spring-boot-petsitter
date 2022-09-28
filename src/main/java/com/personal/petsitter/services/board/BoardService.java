@@ -35,7 +35,6 @@ public interface BoardService extends BasePicturesToList {
     }
 
 
-
     default Board.DetailInfo tupleToDetailDTO(Tuple tuple) {
         Board.DetailInfo dto = Board.DetailInfo.builder()
                 .idx(tuple.get(0, Long.class))
