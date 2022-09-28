@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -27,15 +28,15 @@ public class CustomerController {
         return customerService.showInfo(customer);
     }
 
-    @PutMapping("/update/phonenumber")
-    public ResponseEntity<String> updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody String phonenumber) {
+    @PutMapping(value = "/update/phonenumber", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<String> updatePhonenumber(@CurrentMember CustomerPrincipal customer, @RequestBody HashMap<String, String> phonenumber) {
         System.out.println(phonenumber);
-        return customerService.updatePhonenumber(customer.getIdx(), phonenumber);
+        return customerService.updatePhonenumber(customer.getIdx(), phonenumber.get("phonenumber"));
     }
 
-    @PutMapping("/update/address")
-    public ResponseEntity<String> updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody String address) {
-        return customerService.updateAddress(customer.getIdx(), address);
+    @PutMapping(value = "/update/address", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<String> updateAddress(@CurrentMember CustomerPrincipal customer, @RequestBody HashMap<String, String> address) {
+        return customerService.updateAddress(customer.getIdx(), address.get("address"));
     }
 
     @GetMapping("/pet/list")
@@ -54,8 +55,8 @@ public class CustomerController {
         return customerPetService.modifyPetInfo(customer.getIdx(), dto);
     }
 
-    @DeleteMapping("/pet/delete")
-    public ResponseEntity<String> deletePet(Long petIdx) {
-        return customerPetService.deletePet(petIdx);
+    @DeleteMapping(value = "/pet/delete", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<String> deletePet(@RequestBody HashMap<String, Long> petIdx) {
+        return customerPetService.deletePet(petIdx.get("petIdx"));
     }
 }
